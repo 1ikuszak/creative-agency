@@ -148,8 +148,7 @@ export default function Home() {
             <ServiceCard
               number="01"
               title="Development"
-              accentColor="purple-400"
-              headlineColor="purple-200"
+              variant="purple"
               services={[
                 "Full-Stack Solutions",
                 "API Integration",
@@ -160,8 +159,7 @@ export default function Home() {
             <ServiceCard
               number="02"
               title="Design"
-              accentColor="blue-400"
-              headlineColor="blue-200"
+              variant="blue"
               services={[
                 "UI/UX Systems",
                 "Design Language",
@@ -172,8 +170,7 @@ export default function Home() {
             <ServiceCard
               number="03"
               title="Innovation"
-              accentColor="emerald-400"
-              headlineColor="emerald-200"
+              variant="emerald"
               services={[
                 "AI Integration",
                 "Web3 Solutions",
@@ -184,8 +181,7 @@ export default function Home() {
             <ServiceCard
               number="04"
               title="Strategy"
-              accentColor="rose-400"
-              headlineColor="rose-200"
+              variant="rose"
               services={[
                 "Market Analysis",
                 "Growth Planning",
