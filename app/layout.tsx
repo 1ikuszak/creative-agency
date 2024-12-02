@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { SiteHeader } from "@/components/site-header";
+import { Footer } from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,17 +10,17 @@ const inter = Inter({
   display: "swap",
 });
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
 
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,15 +29,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} font-inter antialiased`}
-      >
+      <body className={inter.className}>
+        <SiteHeader />
         {children}
+        <Footer />
       </body>
     </html>
   );
