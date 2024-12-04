@@ -3,18 +3,13 @@ export interface ProjectType {
   type: "video" | "short" | "image" | "animation";
   title?: string;
   instagramUrl?: string;
-  thumbnailUrl?: string;
-  thumbnail?: string;
   youtubeUrl?: string;
   youtubeId?: string;
   videoUrl?: string;
+  imageUrl?: string;
   tags?: string[];
   year?: string;
   client: string;
-  status: "COMPLETED" | "ACTIVE" | "PENDING";
-  duration?: string;
-  fps?: number;
-  resolution?: string;
 }
 
 export interface PortfolioFilter {

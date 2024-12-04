@@ -1,5 +1,6 @@
 import { ProjectType } from "@/types/portfolio";
 import { useRef, useEffect } from "react";
+import { PortfolioOverlayInfo } from "./PortfolioOverlayInfo";
 
 interface PortfolioVideoCardShortProps {
   project: ProjectType;
@@ -26,8 +27,9 @@ export function PortfolioCardShort({ project }: PortfolioVideoCardShortProps) {
               loop
               playsInline
               preload="auto"
-              poster={project.thumbnailUrl}
               controls
+              controlsList="nodownload"
+              onContextMenu={(e) => e.preventDefault()}
             />
           </div>
         ) : (
@@ -38,6 +40,8 @@ export function PortfolioCardShort({ project }: PortfolioVideoCardShortProps) {
           </div>
         )}
       </div>
+
+      {project.tags && <PortfolioOverlayInfo project={project} />}
     </div>
   );
 }
