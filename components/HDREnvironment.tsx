@@ -1,22 +1,66 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-export default function HDREnvironment() {
+// Loading component with cyberpunk ASCII animation
+function LoadingAnimation() {
+  const [frame, setFrame] = useState(0);
+  const frames = [
+    `╔════════════════════╗
+║ LOADING HDR ENV... ║
+║ ▰▰▰▰▱▱▱▱ 50%      ║
+╚════════════════════╝`,
+    `╔════════════════════╗
+║ LOADING HDR ENV... ║
+║ ▰▰▰▰▰▰▱▱ 75%      ║
+╚════════════════════╝`,
+    `╔════════════════════╗
+║ LOADING HDR ENV... ║
+║ ▰▰▰▰▰▰▰▰ 100%     ║
+╚════════════════════╝`,
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFrame((prev) => (prev + 1) % frames.length);
+    }, 500);
+    return () => clearInterval(interval);
+  }, [frames.length]);
+
+  return (
+    <div className="absolute inset-0 flex items-center justify-center bg-black">
+      <div className="text-center space-y-4">
+        <pre className="font-mono text-green-500 animate-pulse whitespace-pre">
+          {frames[frame]}
+        </pre>
+        <div className="flex gap-2 justify-center">
+          <div className="w-2 h-2 bg-green-500 animate-ping" />
+          <div className="w-2 h-2 bg-blue-500 animate-ping delay-100" />
+          <div className="w-2 h-2 bg-purple-500 animate-ping delay-200" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HDREnvironmentContent() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window === "undefined" || !containerRef.current) return;
 
-    // Store ref in a variable for cleanup
     const container = containerRef.current;
 
-    // Setup renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
+    // Performance optimizations
+    const renderer = new THREE.WebGLRenderer({
+      antialias: false,
+      powerPreference: "high-performance",
+    });
+
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.0;
@@ -25,65 +69,75 @@ export default function HDREnvironment() {
 
     const scene = new THREE.Scene();
 
-    // Camera setup
     const camera = new THREE.PerspectiveCamera(
       60,
       window.innerWidth / window.innerHeight,
       1,
-      1000
+      100
     );
     camera.position.z = 75;
 
-    // Controls
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableZoom = false;
     controls.enablePan = false;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1.0;
 
-    // HDR Loader
+    // Update mobile controls
+    if (window.innerWidth <= 768) {
+      controls.enabled = true;
+      controls.autoRotate = true;
+      controls.rotateSpeed = 0.5;
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.07;
+    }
+
+    // Load HDR
     const loader = new RGBELoader();
+    loader.setDataType(THREE.HalfFloatType);
+
     loader.load(
-      // Update this path to your HDR file (should be a .hdr file)
-      "/autumn_field_puresky_4k.hdr",
+      "/hdr/rogland_sunset_2k.hdr",
       (texture) => {
         texture.mapping = THREE.EquirectangularReflectionMapping;
         scene.background = texture;
         scene.environment = texture;
       },
-      (progress) => {
-        console.log("Loading:", (progress.loaded / progress.total) * 100 + "%");
-      },
+      undefined,
       (error) => {
-        console.log("Error loading HDR:", error);
+        console.error("Error loading HDR:", error);
         scene.background = new THREE.Color(0x000000);
       }
     );
 
-    // Handle resize
+    // Optimized resize handler
+    let resizeTimeout: NodeJS.Timeout;
     const onWindowResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }, 100);
     };
 
     window.addEventListener("resize", onWindowResize);
 
-    // Updated animation loop with automatic rotation
+    // Animation loop
+    let animationFrameId: number;
     function animate() {
-      requestAnimationFrame(animate);
-
-      // Make sure we're not getting interference from controls
-      controls.autoRotate = true;
-      controls.autoRotateSpeed = 2.0; // Adjust this value to control rotation speed
-
+      animationFrameId = requestAnimationFrame(animate);
       controls.update();
       renderer.render(scene, camera);
     }
 
     animate();
 
-    // Cleanup
     return () => {
       window.removeEventListener("resize", onWindowResize);
+      cancelAnimationFrame(animationFrameId);
       scene.clear();
       renderer.dispose();
       controls.dispose();
@@ -93,11 +147,20 @@ export default function HDREnvironment() {
     };
   }, []);
 
+  // Remove the showContent check since we set it immediately
   return (
     <div
       ref={containerRef}
       className="absolute inset-0 z-0 flex-1 w-full h-full"
       aria-hidden="true"
     />
+  );
+}
+
+export default function HDREnvironment() {
+  return (
+    <Suspense fallback={<LoadingAnimation />}>
+      <HDREnvironmentContent />
+    </Suspense>
   );
 }

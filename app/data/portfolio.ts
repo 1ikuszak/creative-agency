@@ -8,7 +8,6 @@ export const portfolioCategories = {
       { id: "3d-graphics", name: "3D Graphics" },
       { id: "logo-design", name: "Logo Design" },
       { id: "branding", name: "Branding" },
-      { id: "web-design", name: "Web Design" },
     ],
   },
   web_solutions: {

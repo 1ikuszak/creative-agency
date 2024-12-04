@@ -14,7 +14,7 @@ export function PortfolioSidebar({
 }: PortfolioSidebarProps) {
   return (
     <aside className="w-64 shrink-0">
-      <div className="sticky top-4 space-y-4 bg-white/10 backdrop-blur-sm border border-black/10 p-4">
+      <div className="sticky top-16 space-y-4 bg-white/10 backdrop-blur-sm border border-black/10 p-4">
         {Object.entries(portfolioCategories).map(([categoryId, category]) => (
           <div key={categoryId} className="space-y-2">
             {/* Cyberpunk-style separator */}

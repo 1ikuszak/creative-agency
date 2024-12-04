@@ -8,11 +8,11 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full h-[calc(100vh-56px)] flex flex-col items-center justify-center px-4">
+      <section className="relative w-full h-[calc(100vh-56px)] flex flex-col items-center justify-center px-3 md:px-5 lg:px-7">
         <HDREnvironment />
 
         {/* Layered ASCII Background Effects */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden md:pointer-events-none">
           {/* Top Left Corner */}
           <div className="absolute top-8 left-8 text-white">
             <pre className="font-mono text-xs leading-none">
@@ -45,10 +45,9 @@ export default function Home() {
         </div>
 
         {/* Hero Content */}
-        <div className="container relative z-10 mx-auto pointer-events-none">
+        <div className="container relative z-10 mx-auto pointer-events-none text-center md:text-left">
           <div className="">
-            {/* Headline - removed mix-blend-multiply, added text shadow for better visibility */}
-            <h1 className="text-7xl md:text-8xl font-bold text-white">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white">
               TRANSFORMING <br /> DREAM IDEAS
               <br />
               INTO DIGITAL
@@ -56,19 +55,23 @@ export default function Home() {
               PIECES
             </h1>
 
-            <p className="mt-8 text-base max-w-3xl text-white">
+            <p className="mt-4 md:mt-8 text-sm md:text-base max-w-3xl text-white mx-auto md:mx-0">
               We help you bring your ideas to life using video technology,
               graphics design, and web development.
             </p>
 
-            <div className="pointer-events-auto inline-block">
+            <div className="pointer-events-auto inline-block mt-8 md:mt-12">
               <Button
                 variant="secondary"
                 size="lg"
-                className="rounded-none mt-12 bg-white/10 backdrop-blur-sm text-white border border-white/20 
-                hover:bg-white/20 transition-all duration-300"
+                className="rounded-none bg-black text-white border border-white 
+                hover:bg-white hover:text-black transition-all duration-300 font-mono text-xs"
               >
-                Start Your Project
+                <pre className="leading-none">
+                  {`┌──────────────────┐
+│ APPLY TODAY ►►► │
+└──────────────────┘`}
+                </pre>
               </Button>
             </div>
           </div>
@@ -82,11 +85,11 @@ export default function Home() {
           <div className="w-[1px] h-12 bg-gradient-to-b from-white/60 to-transparent" />
         </div>
 
-        <div className="absolute right-8 top-0 bottom-0 z-10 w-1 h-screen bg-gradient-to-b from-transparent via-white/80 to-transparent shadow-[0_0_15px_rgba(255,255,255,0.7)] shadow-white/30 mix-blend-screen" />
+        <div className="absolute md:right-4 right-0 lg:right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-white/80 to-transparent shadow-[0_0_15px_rgba(255,255,255,0.7)] shadow-white/30 mix-blend-screen" />
       </section>
 
       {/* Services Section */}
-      <section className="relative flex flex-col items-center justify-center py-20">
+      <section className="relative flex flex-col items-center justify-center py-12 md:py-16 lg:py-20 px-3 md:px-5 lg:px-7">
         {/* New Background Layers */}
         <div className="overflow-hidden absolute inset-0">
           <div
@@ -119,10 +122,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto container space-y-16">
+        <div className="relative z-10 mx-auto container space-y-8 md:space-y-12 lg:space-y-16">
           {/* Services Header */}
           <div className="text-center space-y-4">
-            <h1 className="text-7xl md:text-8xl font-semibold tracking-tighter leading-none relative bg-[url('/leather.png')] bg-repeat bg-clip-text text-transparent [image-rendering:crisp-edges] [-webkit-backface-visibility:hidden] [backface-visibility:hidden] opacity-100">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-none relative bg-[url('/leather.png')] bg-repeat bg-clip-text text-transparent [image-rendering:crisp-edges] [-webkit-backface-visibility:hidden] [backface-visibility:hidden] opacity-100">
               <span className="absolute inset-0 bg-[url('/leather.png')] bg-repeat bg-clip-text text-white mix-blend-overlay opacity-80">
                 SERVICES
               </span>
@@ -131,7 +134,7 @@ export default function Home() {
             <div className="font-mono text-xs text-white/30">
               {`[ ID: SRV-${new Date().getFullYear()}-001 ]`}
             </div>
-            <div className="flex justify-center gap-8 text-white/40 font-mono text-xs">
+            <div className="flex justify-center gap-4 md:gap-8 text-white/40 font-mono text-xs">
               <div>{`<design/>`}</div>
               <div>{`<strategy/>`}</div>
               <div>{`<creativity/>`}</div>
@@ -139,7 +142,7 @@ export default function Home() {
           </div>
 
           {/* Circuit Board Pattern Top */}
-          <div className="flex justify-center text-white/20 font-mono text-xs whitespace-pre">
+          <div className="hidden md:flex justify-center text-white/20 font-mono text-xs whitespace-pre">
             {`┌─────────────────────────────────────────┐
 ├╶╮ ┌─┐ ┌╴                       ─┐ ┌─┐ ╭╴┤
 │╶┘ └╴│ │  INITIALIZING SERVICES  │ │╶┘ └╴│
@@ -149,7 +152,7 @@ export default function Home() {
           </div>
 
           {/* Service Categories Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 px-4 sm:px-0">
             <ServiceCard
               number="01"
               title="Creative Design"
@@ -186,75 +189,35 @@ export default function Home() {
             />
           </div>
 
-          {/* <div className="text-center text-white/20 font-mono text-xs whitespace-pre">
-            {`┌─┐     SERVICES LIST TERMINATED      ┌─┐
-│ ╰────╴▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪╶────╯ │
-├── ○╴┌─┐    SYSTEM SHUTDOWN    ┌─┐╶○ ──┤
-│╶┐ ┌╴│ │  PROCESS COMPLETED... │ │╶┐ │
-├╶┘ └─┘ └╴                      ┘ └─┘ └╴┤
-└──────────────────────────────────────────┘`}
-          </div> */}
-
           {/* Status and Data Stream */}
-          <div className="space-y-4">
+          <div className="space-y-4 px-4 sm:px-0">
             <div className="flex justify-between text-white/10 font-mono text-xs">
               <div>{`◄══ IN:0001`}</div>
               <div>{`OUT:0001 ══►`}</div>
             </div>
 
-            <div className="text-center text-white/20 font-mono text-[10px] leading-none">
+            {/* Displayed only on small devices */}
+            <div className="block md:hidden text-center text-white/20 font-mono text-[10px] leading-none mt-8">
+              {`
+║ 010110 EXECUTING PROTOCOL CONNECT ║`}
+            </div>
+
+            {/* Displayed only on larger devices */}
+            <div className="hidden md:block text-center text-white/20 font-mono text-[10px] leading-none mt-8">
               {`010110 EXECUTING PROTOCOL 110101
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
-║ SYS://services.render.complete ║
+║ SYS://ready.to.connect ║
 █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█`}
             </div>
           </div>
-
-          {/* CTA Button */}
-          {/* <div className="flex justify-center mt-8">
-            <Button
-              size="lg"
-              className="relative group overflow-hidden rounded-none"
-            >
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundColor: "#7f1d1d", // dark red base
-                  backgroundImage: `url('/leather.png')`,
-                  backgroundRepeat: "repeat",
-                  backgroundSize: "200px",
-                  imageRendering: "crisp-edges",
-                  WebkitBackfaceVisibility: "hidden",
-                  MozBackfaceVisibility: "hidden",
-                  backfaceVisibility: "hidden",
-                  opacity: 0.9,
-                }}
-              >
-                <div
-                  className="absolute inset-0 bg-red-950/40"
-                  style={{
-                    mixBlendMode: "overlay",
-                  }}
-                />
-                <div
-                  className="absolute inset-0 bg-gradient-to-br from-red-900/30 via-red-950/30 to-red-900/30"
-                  style={{
-                    mixBlendMode: "soft-light",
-                  }}
-                />
-              </div>
-              <span className="relative z-10 text-white font-semibold">
-                Let&apos;s Create Together
-              </span>
-            </Button>
-          </div> */}
         </div>
 
-        <div className="absolute right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent shadow-[0_0_15px_rgba(0,255,127,0.7)] shadow-blue-500/50 mix-blend-difference" />
+        {/* Side decoration */}
+        <div className="absolute md:right-4 right-0 lg:right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent shadow-[0_0_15px_rgba(0,255,127,0.7)] shadow-blue-500/50 mix-blend-difference" />
       </section>
 
-      {/* Founders Section - Moved up */}
-      <section className="relative flex flex-col items-center justify-center py-20">
+      {/* Founders Section */}
+      <section className="relative flex flex-col items-center justify-center py-12 md:py-16 lg:py-20 px-3 md:px-5 lg:px-7">
         <div className="overflow-hidden absolute inset-0">
           <div
             className="h-full w-full relative"
@@ -271,10 +234,10 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-10 mx-auto container space-y-16">
+        <div className="relative z-10 mx-auto container space-y-8 md:space-y-12 lg:space-y-16">
           {/* Founders Header */}
           <div className="text-center space-y-4">
-            <h1 className="text-7xl md:text-8xl font-semibold text-black tracking-tighter leading-none relative bg-[url('/leather.png')] bg-repeat bg-clip-text text-transparent [image-rendering:crisp-edges] [-webkit-backface-visibility:hidden] [backface-visibility:hidden] opacity-100">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-black tracking-tighter leading-none relative bg-[url('/leather.png')] bg-repeat bg-clip-text text-transparent [image-rendering:crisp-edges] [-webkit-backface-visibility:hidden] [backface-visibility:hidden] opacity-100">
               <span className="absolute inset-0 bg-[url('/leather.png')] bg-repeat bg-clip-text text-red-950 mix-blend-overlay opacity-100">
                 FOUNDERS
               </span>
@@ -283,11 +246,11 @@ export default function Home() {
 
             {/* Updated Cyberpunk Style Header Elements */}
             <div className="flex flex-col items-center gap-2">
-              <pre className="text-black/60 font-mono text-xs leading-none">
+              <pre className="text-black/60 font-mono text-[10px] md:text-xs leading-none overflow-x-auto max-w-full">
                 {`▀▒░◢◤░▒▓█ SYSTEM BREACH DETECTED █▓▒░◥◣░▒`}
               </pre>
 
-              <div className="flex items-center gap-4 text-black/60 font-mono text-xs">
+              <div className="flex flex-wrap justify-center gap-2 md:gap-4 text-black/60 font-mono text-[10px] md:text-xs px-2">
                 <div className="flex items-center gap-2">
                   <span className="inline-block w-2 h-2 bg-emerald-500 animate-pulse" />
                   CORE.ACTIVE
@@ -302,7 +265,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <pre className="text-black/40 font-mono text-xs leading-none mt-2">
+              <pre className="text-black/40 font-mono text-[10px] md:text-xs leading-none mt-2 overflow-x-auto max-w-full px-2">
                 {`╔═════════════════════════════════════╗
 ║ ACCESSING CLASSIFIED INFORMATION... ║
 ╚═════════════════════════════════════╝`}
@@ -311,39 +274,41 @@ export default function Home() {
           </div>
 
           {/* Character Selection Grid */}
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
             {/* Character 1 - Antek */}
             <div className="relative group">
               <div className="absolute inset-0 bg-black/5 blur-xl group-hover:bg-black/10 transition-all duration-300" />
-              <div className="relative border border-black/20 p-8 bg-white/50 backdrop-blur-sm">
+              <div className="relative border border-black/20 p-4 md:p-8 bg-white/50 backdrop-blur-sm">
                 {/* Location Tag */}
-                <div className="absolute top-4 right-4 font-mono text-xs text-black/60">
+                <div className="absolute top-2 md:top-4 right-2 md:right-4 font-mono text-[10px] md:text-xs text-black/60">
                   LOC: POLAND
                 </div>
 
-                {/* Replace ASCII Art with Image */}
-                <div className="relative w-32 aspect-square mb-6">
+                {/* Profile Image */}
+                <div className="relative w-24 md:w-32 aspect-square mb-4 md:mb-6">
                   <Image
                     src="/antek.jpg"
                     alt="Antek Profile"
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 128px"
+                    sizes="(max-width: 768px) 96px, 128px"
                     priority
                   />
                 </div>
 
                 {/* Character Stats */}
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-4">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-3xl font-bold text-black">ANTEK</h3>
-                    <div className="font-mono text-xs text-black/60">
+                    <h3 className="text-2xl md:text-3xl font-bold text-black">
+                      ANTEK
+                    </h3>
+                    <div className="font-mono text-[10px] md:text-xs text-black/60">
                       {`[ ID: SYS-${new Date().getFullYear()}-001 ]`}
                     </div>
                   </div>
 
                   {/* Class & Role */}
-                  <div className="font-mono text-sm text-black/80">
+                  <div className="font-mono text-xs md:text-sm text-black/80">
                     CLASS: TECHNICAL ARCHITECT
                   </div>
 
@@ -424,35 +389,37 @@ export default function Home() {
             {/* Character 2 - Lukasz */}
             <div className="relative group">
               <div className="absolute inset-0 bg-black/5 blur-xl group-hover:bg-black/10 transition-all duration-300" />
-              <div className="relative border border-black/20 p-8 bg-white/50 backdrop-blur-sm">
+              <div className="relative border border-black/20 p-4 md:p-8 bg-white/50 backdrop-blur-sm">
                 {/* Location Tag */}
-                <div className="absolute top-4 right-4 font-mono text-xs text-black/60">
+                <div className="absolute top-2 md:top-4 right-2 md:right-4 font-mono text-[10px] md:text-xs text-black/60">
                   LOC: JAPAN
                 </div>
 
-                {/* Replace ASCII Art with Image */}
-                <div className="relative w-32 aspect-square mb-6">
+                {/* Profile Image */}
+                <div className="relative w-24 md:w-32 aspect-square mb-4 md:mb-6">
                   <Image
                     src="/luki.jpg"
                     alt="Lukasz Profile"
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 128px"
+                    sizes="(max-width: 768px) 96px, 128px"
                     priority
                   />
                 </div>
 
                 {/* Character Stats */}
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-4">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-3xl font-bold text-black">LUKASZ</h3>
-                    <div className="font-mono text-xs text-black/60">
+                    <h3 className="text-2xl md:text-3xl font-bold text-black">
+                      LUKASZ
+                    </h3>
+                    <div className="font-mono text-[10px] md:text-xs text-black/60">
                       {`[ ID: SYS-${new Date().getFullYear()}-002 ]`}
                     </div>
                   </div>
 
                   {/* Class & Role */}
-                  <div className="font-mono text-sm text-black/80">
+                  <div className="font-mono text-xs md:text-sm text-black/80">
                     CLASS: CREATIVE MASTERMIND
                   </div>
 
@@ -532,16 +499,18 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Adjust System Breach Divider spacing */}
-          <div className="flex items-center gap-4 mt-16">
+          {/* System Breach Divider */}
+          <div className="flex items-center gap-2 md:gap-4 mt-8 md:mt-16">
             <div className="flex-1 h-[1px] bg-black/10" />
-            <div className="font-mono text-xs text-black/30">SYSTEM BREACH</div>
+            <div className="font-mono text-[10px] md:text-xs text-black/30">
+              SYSTEM BREACH
+            </div>
             <div className="flex-1 h-[1px] bg-black/10" />
           </div>
         </div>
 
         {/* Side decoration */}
-        <div className="absolute right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-red-900 to-transparent shadow-[0_0_15px_rgba(255,0,0,0.7)] shadow-red-900/50 mix-blend-hard-light" />
+        <div className="absolute md:right-4 right-0 lg:right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-red-900 to-transparent shadow-[0_0_15px_rgba(255,0,0,0.7)] shadow-red-900/50 mix-blend-hard-light" />
       </section>
 
       {/* Portfolio Section - Moved down */}
@@ -585,7 +554,7 @@ export default function Home() {
           {/* <div className="flex justify-center text-black/20 font-mono text-xs whitespace-pre">
             {`┌─────────────────────────────────────────┐
 ├╶╮ ┌─┐ ┌╴                        ─┐ ┌─┐ ╭╴┤
-│╶┘ └╴│ │  LOADING PORTFOLIO...  │ │╶┘ └╴│
+│╶┘ └╴│ │  LOADING PORTFOLIO...  │ │┘ └╴│
 ├── ○╴└─┘    PLEASE STANDBY      └─┘╶○ ──┤
 │  ╭────╴ ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ╶────┐   │
 └────┘     SHOWCASE INITIALIZED        └───┘`}
@@ -597,56 +566,39 @@ export default function Home() {
           {/* CTA Button */}
           <div className="flex justify-center mt-8">
             <Button
+              variant="secondary"
               size="lg"
-              className="relative group overflow-hidden rounded-none"
+              className="rounded-none mt-12 bg-black text-white border border-white 
+                hover:bg-red-950  transition-all duration-300 font-mono text-xs"
             >
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundColor: "#7f1d1d", // dark red base
-                  backgroundImage: `url('/leather.png')`,
-                  backgroundRepeat: "repeat",
-                  backgroundSize: "200px",
-                  imageRendering: "crisp-edges",
-                  WebkitBackfaceVisibility: "hidden",
-                  MozBackfaceVisibility: "hidden",
-                  backfaceVisibility: "hidden",
-                  opacity: 0.9,
-                }}
-              >
-                {/* Darkening overlay - reduced opacity */}
-                <div
-                  className="absolute inset-0 bg-red-950/40"
-                  style={{
-                    mixBlendMode: "overlay",
-                  }}
-                />
-                {/* Additional texture layer - adjusted colors and opacity */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-br from-red-900/30 via-red-950/30 to-red-900/30"
-                  style={{
-                    mixBlendMode: "soft-light",
-                  }}
-                />
-              </div>
-              <span className="relative z-10 text-white">
-                Let&apos;s Create Together
-              </span>
+              <pre className="leading-none">
+                {`┌─────────────────────────────┐
+│  CREATE YOUR PROJECT ►►►  │
+└─────────────────────────────┘`}
+              </pre>
             </Button>
           </div>
 
-          {/* Move and modify the Status and Data Stream here */}
-          <div className="text-center text-black/20 font-mono text-[10px] leading-none">
+          {/* Replace the old status and data stream with these new components */}
+          {/* Displayed only on small devices */}
+          <div className="block md:hidden text-center text-black/20 font-mono text-[10px] leading-none">
+            {`
+║ 010110 EXECUTING PROTOCOL PORTFOLIO ║`}
+          </div>
+
+          {/* Displayed only on larger devices */}
+          <div className="hidden md:block text-center text-black/20 font-mono text-[10px] leading-none">
             {`010110 EXECUTING PROTOCOL 110101
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
-║ SYS://portfolio.render.complete ║
+║ SYS://portfolio.showcase ║
 █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█`}
           </div>
         </div>
+        <div className="absolute md:right-4 right-0 lg:right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-red-900 to-transparent shadow-[0_0_15px_rgba(255,0,0,0.7)] shadow-red-900/50 mix-blend-hard-light" />
       </section>
 
       {/* Connect Section */}
-      <section className="relative flex flex-col items-center justify-center py-20">
+      <section className="relative flex flex-col items-center justify-center py-12 md:py-16 lg:py-20 px-3 md:px-5 lg:px-7">
         {/* Background - updated to royal blue */}
         <div className="overflow-hidden absolute inset-0">
           <div
@@ -672,21 +624,29 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto container space-y-16">
-          {/* Header - Updated with new cyberpunk style */}
-          <div className="text-center space-y-4">
-            <h1 className="text-7xl md:text-8xl font-semibold tracking-tighter leading-none bg-clip-text text-transparent bg-[url('https://images.unsplash.com/photo-1542349314-b0ceb4d90f2d?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3')] bg-center bg-cover">
+        <div className="relative z-10 mx-auto container space-y-8 md:space-y-12 lg:space-y-16">
+          {/* Header - Updated spacing and font sizes */}
+          <div className="text-center space-y-3 md:space-y-4">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-none bg-clip-text text-transparent bg-[url('https://images.unsplash.com/photo-1542349314-b0ceb4d90f2d?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3')] bg-center bg-cover">
               CONNECT
             </h1>
 
             <div className="flex flex-col items-center gap-2">
-              <pre className="text-white/40 font-mono text-xs leading-none">
+              {/* Hide on mobile, show on larger screens */}
+              <pre className="hidden md:block text-white/40 font-mono text-[10px] md:text-xs leading-none">
                 {`╭──── NEURAL LINK ESTABLISHED ────╮
 │    QUANTUM HANDSHAKE ACTIVE    │
 ╰─────────────────────────────────╯`}
               </pre>
 
-              <div className="flex items-center gap-4 text-white/60 font-mono text-xs">
+              {/* Simplified version for mobile */}
+              <pre className="md:hidden text-white/40 font-mono text-[10px] leading-none">
+                {`╭── LINK ACTIVE ──╮
+│  READY TO SYNC  │
+╰─────────────────╯`}
+              </pre>
+
+              <div className="flex flex-wrap justify-center gap-2 md:gap-4 text-white/60 font-mono text-[10px] md:text-xs px-2">
                 <div className="flex items-center gap-2">
                   <span className="inline-block w-1 h-1 bg-emerald-500/60 animate-ping" />
                   <span className="inline-block w-2 h-2 bg-emerald-500/60" />
@@ -699,7 +659,8 @@ export default function Home() {
                 </div>
               </div>
 
-              <pre className="text-white/20 font-mono text-[10px] leading-none">
+              {/* Hide on mobile, show on larger screens */}
+              <pre className="hidden md:block text-white/20 font-mono text-[10px] leading-none">
                 {`◢████████████████████████████████◣
 ◢ SECURE CHANNEL ESTABLISHED ◣
 ◥██████████████████████████████████◤`}
@@ -708,10 +669,10 @@ export default function Home() {
           </div>
 
           {/* Two Column Layout */}
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Calendly Column */}
-            <div className="space-y-6">
-              <div className="font-mono text-xs text-white/40 text-center">
+            <div className="space-y-4 md:space-y-6">
+              <div className="font-mono text-[10px] md:text-xs text-white/40 text-center">
                 {`[ SCHEDULING_MATRIX_v${new Date().getFullYear()}.1 ]`}
               </div>
 
@@ -719,14 +680,14 @@ export default function Home() {
                 <div className="absolute inset-0 bg-white/5 blur-xl" />
                 <div className="relative border border-white/20 backdrop-blur-sm">
                   <div className="bg-white w-full aspect-[4/3] p-4">
-                    <div className="w-full h-full flex items-center justify-center text-black/60 font-mono">
+                    <div className="w-full h-full flex items-center justify-center text-black/60 font-mono text-[10px] md:text-xs">
                       CALENDLY WIDGET PLACEHOLDER
                     </div>
                   </div>
                 </div>
               </div>
 
-              <pre className="text-white/20 font-mono text-[10px] leading-none text-center">
+              <pre className="text-white/20 font-mono text-[8px] md:text-[10px] leading-none text-center">
                 {`╔════════════════════════════╗
 ║    BOOKING SYSTEM ONLINE    ║
 ╚════════════════════════════╝`}
@@ -734,47 +695,46 @@ export default function Home() {
             </div>
 
             {/* Testimonial Column */}
-            <div className="space-y-6">
-              <div className="font-mono text-xs text-white/40 text-center">
+            <div className="space-y-4 md:space-y-6">
+              <div className="font-mono text-[10px] md:text-xs text-white/40 text-center">
                 {`[ CLIENT_FEEDBACK_STREAM ]`}
               </div>
 
               <div className="relative h-full">
                 <div className="absolute inset-0 bg-white/5 blur-xl" />
-                <div className="relative border border-white/20 p-8 backdrop-blur-sm h-full">
-                  <div className="text-4xl text-white/10 font-serif absolute top-4 right-4">
+                <div className="relative border border-white/20 p-4 md:p-6 lg:p-8 backdrop-blur-sm h-full">
+                  <div className="text-3xl md:text-4xl text-white/10 font-serif absolute top-2 md:top-4 right-2 md:right-4">
                     &quot;
                   </div>
 
-                  <div className="space-y-6">
-                    <p className="text-white/80 leading-relaxed">
+                  <div className="space-y-4 md:space-y-6">
+                    <p className="text-sm md:text-base text-white/80 leading-relaxed">
                       &ldquo;Working with CosmicLyrics was an absolute pleasure.
                       Lukasz took our ideas and turned them into a sleek,
-                      professional website that perfectly captures our brand. He
-                      was incredibly patient, responsive, and proactive
-                      throughout the process, nailing every detail we asked for.
+                      professional website that perfectly captures our brand.
                       The end result is a site that looks amazing, works
-                      flawlessly, and has already received great feedback.
-                      Highly recommend Lukasz and the team at CosmicLyrics for
-                      anyone looking to elevate their online presence.&rdquo;
+                      flawlessly, and has already received great
+                      feedback.&rdquo;
                     </p>
 
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-                        <span className="text-white/60 font-mono text-xs">
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
+                        <span className="text-white/60 font-mono text-[10px] md:text-xs">
                           K
                         </span>
                       </div>
                       <div>
-                        <div className="text-white font-semibold">Kirutika</div>
-                        <div className="text-white/60 font-mono text-sm">
+                        <div className="text-white font-semibold text-sm md:text-base">
+                          Kirutika
+                        </div>
+                        <div className="text-white/60 font-mono text-[10px] md:text-sm">
                           CEO of Ambrosial Automations
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2 text-emerald-500/60 font-mono text-xs">
-                      <span className="inline-block w-2 h-2 bg-emerald-500/60 rounded-full animate-pulse" />
+                    <div className="flex items-center gap-2 text-emerald-500/60 font-mono text-[10px] md:text-xs">
+                      <span className="inline-block w-1.5 h-1.5 md:w-2 md:h-2 bg-emerald-500/60 rounded-full animate-pulse" />
                       VERIFIED TESTIMONIAL
                     </div>
                   </div>
@@ -782,18 +742,23 @@ export default function Home() {
               </div>
             </div>
           </div>
+          {/* Displayed only on small devices */}
+          <div className="block md:hidden text-center text-white/20 font-mono text-[10px] leading-none pt-8">
+            {`
+║ 010110 EXECUTING PROTOCOL CONNECT ║`}
+          </div>
 
-          {/* Bottom Status Display */}
-          <div className="text-center text-white/20 font-mono text-[10px] leading-none">
-            {`010110 CONNECTION CHANNELS ACTIVE 110101
+          {/* Displayed only on larger devices */}
+          <div className="hidden md:block text-center text-white/20 font-mono text-[10px] leading-none mt-8">
+            {`010110 EXECUTING PROTOCOL 110101
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
-║ SYS://ready.to.collaborate   ║
+║ SYS://ready.to.connect ║
 █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█`}
           </div>
         </div>
 
-        {/* Updated side decoration - changed to royal blue */}
-        <div className="absolute right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-blue-600 to-transparent shadow-[0_0_15px_rgba(37,99,235,0.7)] shadow-blue-600/50" />
+        {/* Side decoration - Adjusted positioning */}
+        <div className="absolute md:right-4 right-0 lg:right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-blue-600 to-transparent shadow-[0_0_15px_rgba(37,99,235,0.7)] shadow-blue-600/50" />
       </section>
     </main>
   );
