@@ -41,7 +41,9 @@ export function PortfolioCardShort({ project }: PortfolioVideoCardShortProps) {
         )}
       </div>
 
-      {project.tags && <PortfolioOverlayInfo project={project} />}
+      {project.tags && (
+        <PortfolioOverlayInfo project={project} position={"top"} />
+      )}
     </div>
   );
 }

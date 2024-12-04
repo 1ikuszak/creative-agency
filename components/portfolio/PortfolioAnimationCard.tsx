@@ -40,7 +40,9 @@ export function PortfolioAnimationCard({
               </div>
             </div>
           )}
-          {project.tags && <PortfolioOverlayInfo project={project} />}
+          {project.tags && (
+            <PortfolioOverlayInfo project={project} position={"top"} />
+          )}
         </div>
       </div>
     </div>

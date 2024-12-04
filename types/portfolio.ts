@@ -1,6 +1,6 @@
 export interface ProjectType {
   id: string;
-  type: "video" | "short" | "image" | "animation";
+  type: "video" | "short" | "image" | "animation" | "web";
   title?: string;
   instagramUrl?: string;
   youtubeUrl?: string;
@@ -10,6 +10,7 @@ export interface ProjectType {
   tags?: string[];
   year?: string;
   client: string;
+  websiteUrl?: string;
 }
 
 export interface PortfolioFilter {

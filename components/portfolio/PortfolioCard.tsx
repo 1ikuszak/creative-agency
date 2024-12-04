@@ -4,6 +4,7 @@ import { PortfolioCardVideo } from "./PortfolioCardVideo";
 import { PortfolioCardImage } from "./PortfolioCardImage";
 import { PortfolioCardShort } from "./PortfolioCardShort";
 import { PortfolioAnimationCard } from "./PortfolioAnimationCard";
+import { PortfolioCardWeb } from "./PortfolioCardWeb";
 
 interface PortfolioCardProps {
   project: ProjectType;
@@ -17,6 +18,7 @@ export function PortfolioCard({ project }: PortfolioCardProps) {
     short: PortfolioCardShort,
     image: PortfolioCardImage,
     animation: PortfolioAnimationCard,
+    web: PortfolioCardWeb,
   }[project.type];
 
   return (

@@ -1,16 +1,31 @@
 import { ProjectType } from "@/types/portfolio";
+import { cn } from "@/lib/utils";
 
 interface PortfolioOverlayInfoProps {
   project: ProjectType;
+  darkGradient?: boolean;
+  position?: "top" | "bottom";
 }
 
-export function PortfolioOverlayInfo({ project }: PortfolioOverlayInfoProps) {
+export function PortfolioOverlayInfo({
+  project,
+  darkGradient = false,
+  position = "bottom",
+}: PortfolioOverlayInfoProps) {
   return (
-    <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 flex flex-col justify-end">
+    <div
+      className={cn(
+        "absolute inset-0 pointer-events-none p-4 flex flex-col",
+        position === "top" ? "justify-start" : "justify-end",
+        darkGradient
+          ? "bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+          : ""
+      )}
+    >
       <div className="space-y-2">
-        <div className="flex justify-between items-center">
+        {position === "bottom" && (
           <div className="font-mono text-xs text-white/40">{project.year}</div>
-        </div>
+        )}
         {project.title && (
           <h3 className="text-lg font-bold text-white">{project.title}</h3>
         )}
@@ -24,6 +39,9 @@ export function PortfolioOverlayInfo({ project }: PortfolioOverlayInfoProps) {
             </span>
           ))}
         </div>
+        {position === "top" && (
+          <div className="font-mono text-xs text-white/40">{project.year}</div>
+        )}
       </div>
     </div>
   );
