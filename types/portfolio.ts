@@ -7,6 +7,7 @@ export interface ProjectType {
   youtubeId?: string;
   videoUrl?: string;
   imageUrl?: string;
+  thumbnailUrl?: string;
   tags?: string[];
   year?: string;
   client: string;

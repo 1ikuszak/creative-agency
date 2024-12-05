@@ -6,11 +6,45 @@ import { PortfolioCard } from "./portfolio/PortfolioCard";
 import { portfolioCategories } from "@/app/data/portfolio";
 import { CategoryId } from "@/types/portfolio";
 import { PortfolioSidebar } from "./PortfolioSidebar";
+import { PortfolioMobileNav } from "./portfolio/PortfolioMobileNav";
 
 export function PortfolioSection() {
   const [activeCategory, setActiveCategory] = useState<CategoryId | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  // For mobile navigation - scroll to tags
+  const onMobileNavClick = (categoryId: CategoryId) => {
+    const firstFilter = portfolioCategories[categoryId].filters[0];
+    const tagId = `tag-${firstFilter.id}`;
+
+    const element = document.getElementById(tagId);
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // For sidebar - scroll to category sections
+  const onSidebarClick = (categoryId: CategoryId) => {
+    const element = document.getElementById(categoryId);
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
 
   // Handle scroll events to update active category and sidebar visibility
   useEffect(() => {
@@ -27,17 +61,27 @@ export function PortfolioSection() {
           );
 
           // Find the current section in view
+          let foundActive = false;
           sections.forEach((section) => {
             const sectionRect = section.getBoundingClientRect();
             const offset = 200;
 
-            if (sectionRect.top <= offset && sectionRect.bottom >= offset) {
+            if (
+              !foundActive &&
+              sectionRect.top <= offset &&
+              sectionRect.bottom >= offset
+            ) {
               const categoryId = section.getAttribute(
                 "data-category"
               ) as CategoryId;
               setActiveCategory(categoryId);
+              foundActive = true;
             }
           });
+
+          if (!foundActive) {
+            setActiveCategory(null);
+          }
         } else {
           setActiveCategory(null);
         }
@@ -65,51 +109,18 @@ export function PortfolioSection() {
   );
 
   return (
-    <div
-      ref={sectionRef}
-      className="relative min-h-screen px-3 md:px-5 lg:px-7"
-    >
-      {/* Bottom Navigation Bar - Only visible on mobile */}
-      <div
-        className={`fixed bottom-0 left-0 right-0 z-20 transition-opacity duration-300 md:hidden
-        ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-      >
-        <div className="bg-white/80 backdrop-blur-lg border-t border-black/10 px-4 py-3">
-          <div className="flex justify-between items-center gap-2 overflow-x-auto no-scrollbar">
-            {Object.entries(portfolioCategories).map(
-              ([categoryId, category]) => (
-                <button
-                  key={categoryId}
-                  onClick={() => {
-                    document.getElementById(categoryId)?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
-                  }}
-                  className={`flex-shrink-0 px-4 py-2 rounded-full transition-all duration-300 font-mono text-xs
-                  ${
-                    activeCategory === categoryId
-                      ? "text-white bg-black shadow-lg"
-                      : "text-black/60 hover:text-black hover:bg-black/5"
-                  }`}
-                >
-                  {category.name}
-                </button>
-              )
-            )}
-          </div>
-        </div>
-      </div>
+    <div ref={sectionRef} className="relative min-h-screen w-full">
+      {/* Mobile Navigation */}
+      <PortfolioMobileNav
+        onCategoryClick={onMobileNavClick}
+        activeCategory={activeCategory}
+        isVisible={isVisible}
+      />
 
       {/* Desktop/Tablet Layout */}
-      <div className="hidden md:flex container mx-auto">
+      <div className="hidden md:flex">
         <PortfolioSidebar
-          onCategoryClick={(categoryId) => {
-            document.getElementById(categoryId)?.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }}
+          onCategoryClick={onSidebarClick}
           activeCategory={activeCategory}
         />
 
@@ -120,7 +131,7 @@ export function PortfolioSection() {
                 {/* ASCII Section Separator */}
                 <div
                   className={`hidden md:block ${
-                    index === 0 ? "pb-12 md:pb-16" : "py-12 md:py-16"
+                    index === 0 ? "pb-0 md:pb-0" : "py-8 md:py-12"
                   }`}
                 >
                   <div className="space-y-2 text-black/20 font-mono text-xs">
@@ -154,13 +165,13 @@ export function PortfolioSection() {
       </div>
 
       {/* Mobile Layout */}
-      <div className="md:hidden container mx-auto">
+      <div className="md:hidden ">
         <div className="pb-20">
           {Object.entries(projectsByCategory).map(
             ([categoryId, projects], index) => (
               <div key={categoryId}>
                 {/* ASCII Section Separator */}
-                <div className={`pb-12 ${index !== 0 ? "py-12" : ""}`}>
+                <div className={`pb-6 ${index !== 0 ? "py-6 " : ""}`}>
                   <div className="space-y-2 text-black/20 font-mono text-xs">
                     <div className="flex items-center gap-4">
                       <div className="w-2 h-2 border border-black/20" />
@@ -180,9 +191,21 @@ export function PortfolioSection() {
                   className="py-12"
                 >
                   <div className="grid grid-cols-1 gap-4">
-                    {projects.map((project) => (
-                      <PortfolioCard key={project.id} project={project} />
-                    ))}
+                    {projects.map((project) => {
+                      // Generate ID from the first filter of the project's first tag
+                      const firstTag = project.tags?.[0];
+                      const tagId = firstTag
+                        ? `tag-${firstTag
+                            .toLowerCase()
+                            .replace(/[^a-z0-9]+/g, "-")}`
+                        : "";
+
+                      return (
+                        <div key={project.id} id={tagId}>
+                          <PortfolioCard project={project} />
+                        </div>
+                      );
+                    })}
                   </div>
                 </section>
               </div>

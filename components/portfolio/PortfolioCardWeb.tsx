@@ -15,7 +15,10 @@ export function PortfolioCardWeb({
   isHovered,
 }: PortfolioCardWebProps) {
   return (
-    <div className="relative aspect-video overflow-hidden">
+    <div
+      className="relative aspect-video overflow-hidden border border-black"
+      onContextMenu={(e) => e.preventDefault()}
+    >
       {/* Image with Next.js optimization */}
       {project.imageUrl && (
         <Image
@@ -23,14 +26,23 @@ export function PortfolioCardWeb({
           alt={project.title || "Website Preview"}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover"
+          className="object-cover select-none"
           priority={false}
           quality={75}
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
         />
       )}
 
       {/* Top Content */}
-      <div className="absolute top-0 w-full flex justify-between items-start z-10 p-4">
+      <div className="absolute justify-between top-0 w-full flex z-10 p-2">
+        {/* Status Display */}
+        <pre className="text-white/30 text-left text-[10px] leading-none">
+          {`► SYS: ${isHovered ? "READY" : "STANDBY"}
+► NET: CONNECTED
+► SEC: VERIFIED`}
+        </pre>
+
         {/* Website Link Button */}
         {project.websiteUrl && (
           <Button
@@ -49,13 +61,6 @@ export function PortfolioCardWeb({
             </Link>
           </Button>
         )}
-
-        {/* Status Display */}
-        <pre className="text-white/30 text-right text-[10px] leading-none">
-          {`► SYS: ${isHovered ? "READY" : "STANDBY"}
-► NET: CONNECTED
-► SEC: VERIFIED`}
-        </pre>
       </div>
 
       {/* Portfolio Overlay Info */}

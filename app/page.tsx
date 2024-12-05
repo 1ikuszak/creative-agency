@@ -3,12 +3,26 @@ import HDREnvironment from "@/components/HDREnvironment";
 import { ServiceCard } from "@/components/ServiceCard";
 import Image from "next/image";
 import { PortfolioSection } from "@/components/PortfolioSection";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import CalendlyWidget from "@/components/CalendlyWidget";
+import Link from "next/link";
+
+export const dynamic = "force-dynamic";
 
 export default function Home() {
+  const imageProps = {
+    loading: "eager" as const,
+    priority: true,
+    sizes: "(max-width: 768px) 96px, 128px",
+  };
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full h-[calc(100vh-56px)] flex flex-col items-center justify-center px-3 md:px-5 lg:px-7">
+      <section
+        id="hero"
+        className="relative w-full h-[calc(100vh-56px)] flex flex-col items-center justify-center px-3 md:px-5 lg:px-7"
+      >
         <HDREnvironment />
 
         {/* Layered ASCII Background Effects */}
@@ -45,8 +59,8 @@ export default function Home() {
         </div>
 
         {/* Hero Content */}
-        <div className="container relative z-10 mx-auto pointer-events-none text-center md:text-left">
-          <div className="">
+        <div className="container relative z-10 mx-auto">
+          <div className="space-y-4 md:space-y-8">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white">
               TRANSFORMING <br /> DREAM IDEAS
               <br />
@@ -55,24 +69,26 @@ export default function Home() {
               PIECES
             </h1>
 
-            <p className="mt-4 md:mt-8 text-sm md:text-base max-w-3xl text-white mx-auto md:mx-0">
+            <p className="text-sm md:text-base max-w-3xl text-white">
               We help you bring your ideas to life using video technology,
               graphics design, and web development.
             </p>
 
-            <div className="pointer-events-auto inline-block mt-8 md:mt-12">
-              <Button
-                variant="secondary"
-                size="lg"
-                className="rounded-none bg-black text-white border border-white 
-                hover:bg-white hover:text-black transition-all duration-300 font-mono text-xs"
-              >
-                <pre className="leading-none">
-                  {`┌──────────────────┐
+            <div className="mt-8 md:mt-12">
+              <Link href="/#connect">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="rounded-none bg-black text-white border border-white 
+                  hover:bg-white hover:text-black transition-all duration-300 font-mono text-xs"
+                >
+                  <pre className="leading-none">
+                    {`┌──────────────────┐
 │ APPLY TODAY ►►► │
 └──────────────────┘`}
-                </pre>
-              </Button>
+                  </pre>
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -84,12 +100,13 @@ export default function Home() {
           </span>
           <div className="w-[1px] h-12 bg-gradient-to-b from-white/60 to-transparent" />
         </div>
-
-        <div className="absolute md:right-4 right-0 lg:right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-white/80 to-transparent shadow-[0_0_15px_rgba(255,255,255,0.7)] shadow-white/30 mix-blend-screen" />
       </section>
 
       {/* Services Section */}
-      <section className="relative flex flex-col items-center justify-center py-12 md:py-16 lg:py-20 px-3 md:px-5 lg:px-7">
+      <section
+        id="services"
+        className="relative flex flex-col items-center justify-center py-12 md:py-16 lg:px-7"
+      >
         {/* New Background Layers */}
         <div className="overflow-hidden absolute inset-0">
           <div
@@ -145,14 +162,14 @@ export default function Home() {
           <div className="hidden md:flex justify-center text-white/20 font-mono text-xs whitespace-pre">
             {`┌─────────────────────────────────────────┐
 ├╶╮ ┌─┐ ┌╴                       ─┐ ┌─┐ ╭╴┤
-│╶┘ └╴│ │  INITIALIZING SERVICES  │ │╶┘ └╴│
+│╶┘ └╴│ │  INITIALIZING SERVICES   │┘ └╴│
 ├── ○╴└─┘    SYSTEM LOADING...    └─┘╶○ ──┤
 │  ╭────╴ ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ╶─────┐   │
 └──┘     SERVICES LIST ACTIVATED      └───┘`}
           </div>
 
           {/* Service Categories Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 px-4 sm:px-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             <ServiceCard
               number="01"
               title="Creative Design"
@@ -190,7 +207,7 @@ export default function Home() {
           </div>
 
           {/* Status and Data Stream */}
-          <div className="space-y-4 px-4 sm:px-0">
+          <div className="space-y-4">
             <div className="flex justify-between text-white/10 font-mono text-xs">
               <div>{`◄══ IN:0001`}</div>
               <div>{`OUT:0001 ══►`}</div>
@@ -211,14 +228,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* Side decoration */}
-        <div className="absolute md:right-4 right-0 lg:right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent shadow-[0_0_15px_rgba(0,255,127,0.7)] shadow-blue-500/50 mix-blend-difference" />
       </section>
 
       {/* Founders Section */}
-      <section className="relative flex flex-col items-center justify-center py-12 md:py-16 lg:py-20 px-3 md:px-5 lg:px-7">
-        <div className="overflow-hidden absolute inset-0">
+      <section
+        id="founders"
+        className="relative flex flex-col items-center justify-center py-12 md:py-16 lg:py-20 px-3 md:px-5 lg:px-7"
+      >
+        <div className="overflow-hidden absolute inset-0 w-full">
           <div
             className="h-full w-full relative"
             style={{
@@ -268,13 +285,13 @@ export default function Home() {
               <pre className="text-black/40 font-mono text-[10px] md:text-xs leading-none mt-2 overflow-x-auto max-w-full px-2">
                 {`╔═════════════════════════════════════╗
 ║ ACCESSING CLASSIFIED INFORMATION... ║
-╚═════════════════════════════════════╝`}
+╚══════════════════════════════════════╝`}
               </pre>
             </div>
           </div>
 
           {/* Character Selection Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Character 1 - Antek */}
             <div className="relative group">
               <div className="absolute inset-0 bg-black/5 blur-xl group-hover:bg-black/10 transition-all duration-300" />
@@ -290,9 +307,8 @@ export default function Home() {
                     src="/antek.jpg"
                     alt="Antek Profile"
                     fill
+                    {...imageProps}
                     className="object-cover"
-                    sizes="(max-width: 768px) 96px, 128px"
-                    priority
                   />
                 </div>
 
@@ -309,14 +325,14 @@ export default function Home() {
 
                   {/* Class & Role */}
                   <div className="font-mono text-xs md:text-sm text-black/80">
-                    CLASS: TECHNICAL ARCHITECT
+                    CREATIVE MASTERMIND
                   </div>
 
                   {/* ASCII Stats Bars */}
                   <div className="space-y-3">
                     <div className="space-y-1">
                       <div className="flex justify-between text-xs text-black/60">
-                        <span>CODING</span>
+                        <span>DESIGN</span>
                         <span>95/100</span>
                       </div>
                       <pre className="text-emerald-500/60 text-xs leading-none">
@@ -329,7 +345,7 @@ export default function Home() {
                         <span>90/100</span>
                       </div>
                       <pre className="text-blue-500/60 text-xs leading-none">
-                        {`[████████▒▒] `}
+                        {`[████████▒] `}
                       </pre>
                     </div>
                     <div className="space-y-1">
@@ -350,10 +366,10 @@ export default function Home() {
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {[
-                        "Full-Stack Mastery",
-                        "AI Integration",
-                        "System Architecture",
-                        "Problem Solving",
+                        "Branding",
+                        "Illustration",
+                        "3d Modeling",
+                        "Graphic Design",
                       ].map((ability) => (
                         <span
                           key={ability}
@@ -371,7 +387,8 @@ export default function Home() {
                       SIGNATURE MOVE
                     </div>
                     <p className="text-black/80 italic mt-2">
-                      &ldquo;Turning coffee into code since 2018&rdquo;
+                      &ldquo;Design is not just what it looks like, it&apos;s
+                      how it works&rdquo;
                     </p>
                   </div>
 
@@ -402,8 +419,7 @@ export default function Home() {
                     alt="Lukasz Profile"
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 96px, 128px"
-                    priority
+                    {...imageProps}
                   />
                 </div>
 
@@ -420,14 +436,14 @@ export default function Home() {
 
                   {/* Class & Role */}
                   <div className="font-mono text-xs md:text-sm text-black/80">
-                    CLASS: CREATIVE MASTERMIND
+                    TECHNICAL ARCHITECT
                   </div>
 
                   {/* ASCII Stats Bars */}
                   <div className="space-y-3">
                     <div className="space-y-1">
                       <div className="flex justify-between text-xs text-black/60">
-                        <span>DESIGN</span>
+                        <span>VIDEO</span>
                         <span>95/100</span>
                       </div>
                       <pre className="text-rose-500/60 text-xs leading-none">
@@ -436,7 +452,7 @@ export default function Home() {
                     </div>
                     <div className="space-y-1">
                       <div className="flex justify-between text-xs text-black/60">
-                        <span>INNOVATION</span>
+                        <span>CODING</span>
                         <span>92/100</span>
                       </div>
                       <pre className="text-amber-500/60 text-xs leading-none">
@@ -445,7 +461,7 @@ export default function Home() {
                     </div>
                     <div className="space-y-1">
                       <div className="flex justify-between text-xs text-black/60">
-                        <span>STRATEGY</span>
+                        <span>INNOVATION</span>
                         <span>88/100</span>
                       </div>
                       <pre className="text-cyan-500/60 text-xs leading-none">
@@ -463,8 +479,8 @@ export default function Home() {
                       {[
                         "Visual Design",
                         "UX Strategy",
-                        "Brand Architecture",
-                        "Creative Direction",
+                        "Coding",
+                        "Video Editing",
                       ].map((ability) => (
                         <span
                           key={ability}
@@ -482,8 +498,7 @@ export default function Home() {
                       SIGNATURE MOVE
                     </div>
                     <p className="text-black/80 italic mt-2">
-                      &ldquo;Design is not just what it looks like, it&apos;s
-                      how it works&rdquo;
+                      &ldquo;I love building and creating things&rdquo;
                     </p>
                   </div>
 
@@ -508,13 +523,13 @@ export default function Home() {
             <div className="flex-1 h-[1px] bg-black/10" />
           </div>
         </div>
-
-        {/* Side decoration */}
-        <div className="absolute md:right-4 right-0 lg:right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-red-900 to-transparent shadow-[0_0_15px_rgba(255,0,0,0.7)] shadow-red-900/50 mix-blend-hard-light" />
       </section>
 
-      {/* Portfolio Section - Moved down */}
-      <section className="relative flex flex-col items-center justify-center py-20">
+      {/* Portfolio Section */}
+      <section
+        id="portfolio"
+        className="relative flex flex-col items-center justify-center py-12 md:py-16 lg:py-20 px-3 md:px-5 lg:px-7"
+      >
         <div className="overflow-hidden absolute inset-0">
           <div
             className="h-full w-full relative"
@@ -531,7 +546,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-10 mx-auto container space-y-16">
+        <div className="relative z-10 mx-auto container space-y-8 md:space-y-12 lg:space-y-16">
           {/* Portfolio Header */}
           <div className="text-center space-y-4">
             <h1 className="text-7xl md:text-8xl font-semibold text-black tracking-tighter leading-none relative bg-[url('/leather.png')] bg-repeat bg-clip-text text-transparent [image-rendering:crisp-edges] [-webkit-backface-visibility:hidden] [backface-visibility:hidden] opacity-100">
@@ -556,7 +571,7 @@ export default function Home() {
 ├╶╮ ┌─┐ ┌╴                        ─┐ ┌─┐ ╭╴┤
 │╶┘ └╴│ │  LOADING PORTFOLIO...  │ │┘ └╴│
 ├── ○╴└─┘    PLEASE STANDBY      └─┘╶○ ──┤
-│  ╭────╴ ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ╶────┐   │
+│  ╭────╴ ▪▪▪▪▪▪▪▪▪▪▪���▪▪▪▪▪▪▪▪▪ ╶────┐   │
 └────┘     SHOWCASE INITIALIZED        └───┘`}
           </div> */}
 
@@ -564,7 +579,7 @@ export default function Home() {
           <PortfolioSection />
 
           {/* CTA Button */}
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center">
             <Button
               variant="secondary"
               size="lg"
@@ -594,11 +609,13 @@ export default function Home() {
 █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█`}
           </div>
         </div>
-        <div className="absolute md:right-4 right-0 lg:right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-red-900 to-transparent shadow-[0_0_15px_rgba(255,0,0,0.7)] shadow-red-900/50 mix-blend-hard-light" />
       </section>
 
       {/* Connect Section */}
-      <section className="relative flex flex-col items-center justify-center py-12 md:py-16 lg:py-20 px-3 md:px-5 lg:px-7">
+      <section
+        id="connect"
+        className="relative flex flex-col items-center justify-center py-12 md:py-16 lg:py-20 px-3 md:px-5 lg:px-7"
+      >
         {/* Background - updated to royal blue */}
         <div className="overflow-hidden absolute inset-0">
           <div
@@ -626,8 +643,11 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto container space-y-8 md:space-y-12 lg:space-y-16">
           {/* Header - Updated spacing and font sizes */}
-          <div className="text-center space-y-3 md:space-y-4">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-none bg-clip-text text-transparent bg-[url('https://images.unsplash.com/photo-1542349314-b0ceb4d90f2d?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3')] bg-center bg-cover">
+          <div className="text-center space-y-4">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-black tracking-tighter leading-none relative bg-[url('/leather.png')] bg-repeat bg-clip-text text-transparent [image-rendering:crisp-edges] [-webkit-backface-visibility:hidden] [backface-visibility:hidden] opacity-100">
+              <span className="absolute inset-0 bg-[url('/leather.png')] bg-repeat bg-clip-text text-blue-800 mix-blend-overlay opacity-100">
+                CONNECT
+              </span>
               CONNECT
             </h1>
 
@@ -661,7 +681,7 @@ export default function Home() {
 
               {/* Hide on mobile, show on larger screens */}
               <pre className="hidden md:block text-white/20 font-mono text-[10px] leading-none">
-                {`◢████████████████████████████████◣
+                {`◢██████��█████████████████████████◣
 ◢ SECURE CHANNEL ESTABLISHED ◣
 ◥██████████████████████████████████◤`}
               </pre>
@@ -671,27 +691,16 @@ export default function Home() {
           {/* Two Column Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Calendly Column */}
-            <div className="space-y-4 md:space-y-6">
+            <div className="space-y-4 md:space-y-6 h-full">
               <div className="font-mono text-[10px] md:text-xs text-white/40 text-center">
                 {`[ SCHEDULING_MATRIX_v${new Date().getFullYear()}.1 ]`}
               </div>
 
-              <div className="relative">
-                <div className="absolute inset-0 bg-white/5 blur-xl" />
-                <div className="relative border border-white/20 backdrop-blur-sm">
-                  <div className="bg-white w-full aspect-[4/3] p-4">
-                    <div className="w-full h-full flex items-center justify-center text-black/60 font-mono text-[10px] md:text-xs">
-                      CALENDLY WIDGET PLACEHOLDER
-                    </div>
-                  </div>
+              <div className="relative flex-1">
+                <div className="w-full h-full">
+                  <CalendlyWidget />
                 </div>
               </div>
-
-              <pre className="text-white/20 font-mono text-[8px] md:text-[10px] leading-none text-center">
-                {`╔════════════════════════════╗
-║    BOOKING SYSTEM ONLINE    ║
-╚════════════════════════════╝`}
-              </pre>
             </div>
 
             {/* Testimonial Column */}
@@ -701,64 +710,103 @@ export default function Home() {
               </div>
 
               <div className="relative h-full">
-                <div className="absolute inset-0 bg-white/5 blur-xl" />
-                <div className="relative border border-white/20 p-4 md:p-6 lg:p-8 backdrop-blur-sm h-full">
-                  <div className="text-3xl md:text-4xl text-white/10 font-serif absolute top-2 md:top-4 right-2 md:right-4">
-                    &quot;
-                  </div>
+                <div className="relative border border-white/20 p-4 md:p-6 lg:p-8 backdrop-blur-sm">
+                  {/* Testimonial Carousel/Tabs */}
+                  <div className="space-y-8">
+                    {/* First Testimonial */}
+                    <div className="space-y-4 md:space-y-6">
+                      <p className="text-sm md:text-base text-white/80 leading-relaxed">
+                        &ldquo;Working with drewmp was an absolute pleasure.
+                        professional website that perfectly captures our brand.
+                        The end result is a site that looks amazing, works
+                        flawlessly, and has already received great
+                        feedback.&rdquo;
+                      </p>
 
-                  <div className="space-y-4 md:space-y-6">
-                    <p className="text-sm md:text-base text-white/80 leading-relaxed">
-                      &ldquo;Working with CosmicLyrics was an absolute pleasure.
-                      Lukasz took our ideas and turned them into a sleek,
-                      professional website that perfectly captures our brand.
-                      The end result is a site that looks amazing, works
-                      flawlessly, and has already received great
-                      feedback.&rdquo;
-                    </p>
-
-                    <div className="flex items-center gap-3 md:gap-4">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-                        <span className="text-white/60 font-mono text-[10px] md:text-xs">
-                          K
-                        </span>
-                      </div>
-                      <div>
-                        <div className="text-white font-semibold text-sm md:text-base">
-                          Kirutika
+                      <div className="flex items-center gap-3 md:gap-4">
+                        <Avatar className="w-10 h-10 md:w-12 md:h-12 border border-white/20">
+                          <AvatarImage
+                            src="https://drewmp.s3.eu-north-1.amazonaws.com/kirutika.jpg"
+                            alt="Kirutika"
+                            className="object-cover"
+                            loading="eager"
+                          />
+                          <AvatarFallback className="bg-white/10 text-white/60 font-mono text-[10px] md:text-xs">
+                            K
+                          </AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div className="text-white font-semibold text-sm md:text-base">
+                            Kirutika
+                          </div>
+                          <div className="text-white/60 font-mono text-[10px] md:text-sm">
+                            CEO of Ambrosial Automations
+                          </div>
                         </div>
-                        <div className="text-white/60 font-mono text-[10px] md:text-sm">
-                          CEO of Ambrosial Automations
+                      </div>
+                    </div>
+
+                    {/* Second Testimonial */}
+                    <div className="space-y-4 md:space-y-6 border-t border-white/10 pt-8">
+                      <p className="text-sm md:text-base text-white/80 leading-relaxed">
+                        &ldquo;Luke demonstrated a remarkable understanding of
+                        our vision, with extremely clear communication and
+                        responsiveness that allowed us to rest easy knowing we
+                        were in good hands. Thanks to drewmp our website
+                        accurately reflects the service we provide to our
+                        clients.&rdquo;
+                      </p>
+
+                      <div className="flex items-center gap-3 md:gap-4">
+                        <Avatar className="w-10 h-10 md:w-12 md:h-12 border border-white/20">
+                          <AvatarImage
+                            src="https://drewmp.s3.eu-north-1.amazonaws.com/jacek_goszczynski.jpeg"
+                            alt="Jacek Goszczyński"
+                            className="object-cover"
+                            loading="eager"
+                          />
+                          <AvatarFallback className="bg-white/10 text-white/60 font-mono text-[10px] md:text-xs">
+                            JG
+                          </AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div className="text-white font-semibold text-sm md:text-base">
+                            Jacek Goszczyński
+                          </div>
+                          <div className="text-white/60 font-mono text-[10px] md:text-sm">
+                            CEO JG-Marine
+                          </div>
                         </div>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2 text-emerald-500/60 font-mono text-[10px] md:text-xs">
                       <span className="inline-block w-1.5 h-1.5 md:w-2 md:h-2 bg-emerald-500/60 rounded-full animate-pulse" />
-                      VERIFIED TESTIMONIAL
+                      VERIFIED TESTIMONIALS
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {/* Displayed only on small devices */}
-          <div className="block md:hidden text-center text-white/20 font-mono text-[10px] leading-none pt-8">
-            {`
-║ 010110 EXECUTING PROTOCOL CONNECT ║`}
-          </div>
 
-          {/* Displayed only on larger devices */}
-          <div className="hidden md:block text-center text-white/20 font-mono text-[10px] leading-none mt-8">
-            {`010110 EXECUTING PROTOCOL 110101
+          {/* Status indicators */}
+          <div className="space-y-4">
+            {/* Mobile status */}
+            <div className="block md:hidden text-center text-white/20 font-mono text-[10px] leading-none">
+              {`
+║ 010110 EXECUTING PROTOCOL CONNECT ║`}
+            </div>
+
+            {/* Desktop status */}
+            <div className="hidden md:block text-center text-white/20 font-mono text-[10px] leading-none">
+              {`010110 EXECUTING PROTOCOL 110101
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
 ║ SYS://ready.to.connect ║
 █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█`}
+            </div>
           </div>
         </div>
-
-        {/* Side decoration - Adjusted positioning */}
-        <div className="absolute md:right-4 right-0 lg:right-8 top-0 bottom-0 z-10 w-1 h-full bg-gradient-to-b from-transparent via-blue-600 to-transparent shadow-[0_0_15px_rgba(37,99,235,0.7)] shadow-blue-600/50" />
       </section>
     </main>
   );

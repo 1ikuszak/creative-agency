@@ -4,7 +4,7 @@ import * as React from "react";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
 
-import { siteConfig } from "@/config/site";
+import { navigationLinks, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -61,10 +61,29 @@ export function MobileNav() {
           <span className="font-bold">{siteConfig.name}</span>
         </MobileLink>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
-          <div className="flex flex-col space-y-3"></div>
+          <div className="flex flex-col space-y-3">
+            {navigationLinks.mainNav.map((link) => (
+              <MobileLink
+                key={link.name}
+                href={link.href}
+                onOpenChange={setOpen}
+                className="text-black/60 hover:text-black transition-colors"
+              >
+                {link.name}
+              </MobileLink>
+            ))}
+          </div>
           <div className="flex flex-col space-y-2"></div>
         </ScrollArea>
       </SheetContent>
+      <Link
+        href="/"
+        className="mr-4 flex items-center space-x-2 lg:mr-6 md:hidden"
+      >
+        <span className="md:hidden font-bold lg:inline-block">
+          {siteConfig.name}
+        </span>
+      </Link>
     </Sheet>
   );
 }
