@@ -7,12 +7,12 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import CalendlyWidget from "@/components/CalendlyWidget";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export default function Home() {
   const imageProps = {
-    loading: "eager" as const,
-    priority: true,
+    // loading: "eager" as const,
+    // priority: true,
     sizes: "(max-width: 768px) 96px, 128px",
   };
 

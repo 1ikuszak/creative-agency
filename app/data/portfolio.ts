@@ -63,7 +63,6 @@ export const portfolioProjects: ProjectType[] = [
     year: "2024",
     client: "Personal Project",
   },
-
   {
     id: "SHORT-001",
     type: "short",
@@ -177,7 +176,6 @@ export const portfolioProjects: ProjectType[] = [
     year: "2024",
     client: "Personal Project",
   },
-
   {
     id: "GRAPH-001",
     type: "image",
@@ -187,7 +185,6 @@ export const portfolioProjects: ProjectType[] = [
     year: "2024",
     client: "Personal Project",
   },
-
   {
     id: "GRAPH-002",
     type: "image",

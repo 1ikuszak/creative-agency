@@ -1,12 +1,18 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense, lazy } from "react";
 import { portfolioProjects } from "@/app/data/portfolio";
-import { PortfolioCard } from "./portfolio/PortfolioCard";
 import { portfolioCategories } from "@/app/data/portfolio";
 import { CategoryId } from "@/types/portfolio";
 import { PortfolioSidebar } from "./PortfolioSidebar";
 import { PortfolioMobileNav } from "./portfolio/PortfolioMobileNav";
+
+// Lazy load the PortfolioCard component
+const PortfolioCard = lazy(() =>
+  import("./portfolio/PortfolioCard").then((module) => ({
+    default: module.PortfolioCard,
+  }))
+);
 
 export function PortfolioSection() {
   const [activeCategory, setActiveCategory] = useState<CategoryId | null>(null);
@@ -109,7 +115,7 @@ export function PortfolioSection() {
   );
 
   return (
-    <div ref={sectionRef} className="relative min-h-screen w-full">
+    <div ref={sectionRef} className="relative min-h-screen  w-full">
       {/* Mobile Navigation */}
       <PortfolioMobileNav
         onCategoryClick={onMobileNavClick}
@@ -152,11 +158,13 @@ export function PortfolioSection() {
                   data-category-section
                   className="py-12"
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-                    {projects.map((project) => (
-                      <PortfolioCard key={project.id} project={project} />
-                    ))}
-                  </div>
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+                      {projects.map((project) => (
+                        <PortfolioCard key={project.id} project={project} />
+                      ))}
+                    </div>
+                  </Suspense>
                 </section>
               </div>
             )
@@ -190,23 +198,25 @@ export function PortfolioSection() {
                   data-category-section
                   className="py-12"
                 >
-                  <div className="grid grid-cols-1 gap-4">
-                    {projects.map((project) => {
-                      // Generate ID from the first filter of the project's first tag
-                      const firstTag = project.tags?.[0];
-                      const tagId = firstTag
-                        ? `tag-${firstTag
-                            .toLowerCase()
-                            .replace(/[^a-z0-9]+/g, "-")}`
-                        : "";
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <div className="grid grid-cols-1 gap-4">
+                      {projects.map((project) => {
+                        // Generate ID from the first filter of the project's first tag
+                        const firstTag = project.tags?.[0];
+                        const tagId = firstTag
+                          ? `tag-${firstTag
+                              .toLowerCase()
+                              .replace(/[^a-z0-9]+/g, "-")}`
+                          : "";
 
-                      return (
-                        <div key={project.id} id={tagId}>
-                          <PortfolioCard project={project} />
-                        </div>
-                      );
-                    })}
-                  </div>
+                        return (
+                          <div key={project.id} id={tagId}>
+                            <PortfolioCard project={project} />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </Suspense>
                 </section>
               </div>
             )
