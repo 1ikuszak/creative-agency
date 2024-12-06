@@ -1,12 +1,12 @@
 import { ProjectType } from "@/types/portfolio";
 import { useRef, useEffect } from "react";
-import { PortfolioOverlayInfo } from "./PortfolioOverlayInfo";
+import { PortfolioOverlayInfo } from "../PortfolioOverlayInfo";
 
-interface PortfolioVideoCardShortProps {
+interface ShortCardProps {
   project: ProjectType;
 }
 
-export function PortfolioCardShort({ project }: PortfolioVideoCardShortProps) {
+export function ShortCard({ project }: ShortCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {

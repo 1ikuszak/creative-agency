@@ -1,16 +1,13 @@
 import { ProjectType } from "@/types/portfolio";
 import Image from "next/image";
-import { PortfolioOverlayInfo } from "./PortfolioOverlayInfo";
+import { PortfolioOverlayInfo } from "../PortfolioOverlayInfo";
 
-interface PortfolioCardImageProps {
+interface ImageCardProps {
   project: ProjectType;
   isHovered: boolean;
 }
 
-export function PortfolioCardImage({
-  project,
-  isHovered,
-}: PortfolioCardImageProps) {
+export function ImageCard({ project, isHovered }: ImageCardProps) {
   return (
     <div
       className="relative aspect-square bg-black/80 border border-white/10 overflow-hidden"

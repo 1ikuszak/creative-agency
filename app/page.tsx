@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import HDREnvironment from "@/components/HDREnvironment";
 import { ServiceCard } from "@/components/ServiceCard";
-import Image from "next/image";
 import { PortfolioSection } from "@/components/portfolio/PortfolioSection";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import CalendlyWidget from "@/components/CalendlyWidget";
@@ -553,16 +552,6 @@ export default function Home() {
               <div>{`<works/>`}</div>
             </div>
           </div>
-
-          {/* Circuit Board Pattern Top */}
-          {/* <div className="flex justify-center text-black/20 font-mono text-xs whitespace-pre">
-            {`┌─────────────────────────────────────────┐
-├╶╮ ┌─┐ ┌╴                        ─┐ ┌─┐ ╭╴┤
-│╶┘ └╴│ │  LOADING PORTFOLIO...  │ │┘ └╴│
-├── ○╴└─┘    PLEASE STANDBY      └─┘╶○ ──┤
-│  ╭────╴ ▪▪▪▪▪▪▪▪▪▪▪���▪▪▪▪▪▪▪▪▪ ╶────┐   │
-└────┘     SHOWCASE INITIALIZED        └───┘`}
-          </div> */}
 
           {/* Replace the old portfolio grid with the new component */}
           <PortfolioSection />

@@ -1,5 +1,4 @@
 import { getPlaiceholder } from "plaiceholder";
-import { ImageProps } from "next/image";
 
 export async function getImage(src: string, fill: boolean = false) {
   const buffer = await fetch(src).then(async (res) =>

@@ -1,17 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ProjectType } from "@/types/portfolio";
-import { PortfolioOverlayInfo } from "./PortfolioOverlayInfo";
+import { PortfolioOverlayInfo } from "../PortfolioOverlayInfo";
 
-interface PortfolioCardVideoProps {
+interface VideoCardProps {
   project: ProjectType;
-  isHovered?: boolean;
 }
 
-export function PortfolioCardVideo({
-  project,
-  isHovered,
-}: PortfolioCardVideoProps) {
+export function VideoCard({ project }: VideoCardProps) {
   if (!project.videoUrl || !project.imageUrl) {
     return null;
   }

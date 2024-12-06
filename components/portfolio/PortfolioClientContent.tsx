@@ -1,12 +1,16 @@
 "use client";
 
-import { CategoryId } from "@/types/portfolio";
+import {
+  CategoryId,
+  ProjectType,
+  PortfolioCategories,
+} from "@/types/portfolio";
 import { PortfolioCardWrapper } from "./PortfolioCardWrapper";
 
 interface PortfolioClientContentProps {
   initialData: {
-    portfolioProjects: any[];
-    portfolioCategories: any;
+    portfolioProjects: ProjectType[];
+    portfolioCategories: PortfolioCategories;
   };
 }
 
@@ -18,15 +22,17 @@ export function PortfolioClientContent({
   const projectsByCategory = Object.entries(portfolioCategories).reduce(
     (acc, [categoryId, category]) => {
       const categoryProjects = portfolioProjects.filter((project) =>
-        project.tags?.some((tag: string) =>
-          (category as any).filters.some((filter: any) => filter.name === tag)
+        project.tags?.some((tag) =>
+          category.filters.some(
+            (filter: { name: string }) => filter.name === tag
+          )
         )
       );
 
       acc[categoryId as CategoryId] = categoryProjects;
       return acc;
     },
-    {} as Record<CategoryId, typeof portfolioProjects>
+    {} as Record<CategoryId, ProjectType[]>
   );
 
   return (

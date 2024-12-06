@@ -9,7 +9,6 @@ import { PortfolioClientWrapper } from "./PortfolioClientWrapper";
 export function PortfolioSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeCategory, setActiveCategory] = useState<CategoryId | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   const onSidebarClick = (categoryId: CategoryId) => {
     const element = document.getElementById(`category-${categoryId}`);
@@ -32,7 +31,6 @@ export function PortfolioSection() {
       if (sectionRef.current) {
         const rect = sectionRef.current.getBoundingClientRect();
         const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
-        setIsVisible(isInView);
 
         if (isInView) {
           const sections = sectionRef.current.querySelectorAll(

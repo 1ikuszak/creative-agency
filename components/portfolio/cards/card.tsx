@@ -6,8 +6,8 @@ import dynamic from "next/dynamic";
 const CardComponents = {
   video: dynamic(
     () =>
-      import("./PortfolioCardVideo").then((mod) => ({
-        default: mod.PortfolioCardVideo,
+      import("./video-card").then((mod) => ({
+        default: mod.VideoCard,
       })),
     {
       loading: () => <div className="aspect-video bg-black/5 animate-pulse" />,
@@ -16,8 +16,8 @@ const CardComponents = {
   ),
   short: dynamic(
     () =>
-      import("./PortfolioCardShort").then((mod) => ({
-        default: mod.PortfolioCardShort,
+      import("./short-card").then((mod) => ({
+        default: mod.ShortCard,
       })),
     {
       loading: () => <div className="aspect-[9/16] bg-black/5 animate-pulse" />,
@@ -26,8 +26,8 @@ const CardComponents = {
   ),
   image: dynamic(
     () =>
-      import("./PortfolioCardImage").then((mod) => ({
-        default: mod.PortfolioCardImage,
+      import("./image-card").then((mod) => ({
+        default: mod.ImageCard,
       })),
     {
       loading: () => <div className="aspect-video bg-black/5 animate-pulse" />,
@@ -36,8 +36,8 @@ const CardComponents = {
   ),
   animation: dynamic(
     () =>
-      import("./PortfolioAnimationCard").then((mod) => ({
-        default: mod.PortfolioAnimationCard,
+      import("./animation-card").then((mod) => ({
+        default: mod.AnimationCard,
       })),
     {
       loading: () => <div className="aspect-video bg-black/5 animate-pulse" />,
@@ -46,8 +46,8 @@ const CardComponents = {
   ),
   web: dynamic(
     () =>
-      import("./PortfolioCardWeb").then((mod) => ({
-        default: mod.PortfolioCardWeb,
+      import("./web-card").then((mod) => ({
+        default: mod.WebCard,
       })),
     {
       loading: () => <div className="aspect-video bg-black/5 animate-pulse" />,
@@ -56,11 +56,11 @@ const CardComponents = {
   ),
 };
 
-interface PortfolioCardProps {
+interface CardProps {
   project: ProjectType;
 }
 
-export default function PortfolioCard({ project }: PortfolioCardProps) {
+export default function Card({ project }: CardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const CardComponent = CardComponents[project.type];
 

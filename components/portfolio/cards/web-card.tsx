@@ -2,18 +2,15 @@ import { ProjectType } from "@/types/portfolio";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
-import { PortfolioOverlayInfo } from "./PortfolioOverlayInfo";
+import { PortfolioOverlayInfo } from "../PortfolioOverlayInfo";
 import Link from "next/link";
 
-interface PortfolioCardWebProps {
+interface WebCardProps {
   project: ProjectType;
   isHovered: boolean;
 }
 
-export function PortfolioCardWeb({
-  project,
-  isHovered,
-}: PortfolioCardWebProps) {
+export function WebCard({ project, isHovered }: WebCardProps) {
   return (
     <div
       className="relative aspect-video overflow-hidden border border-black"
