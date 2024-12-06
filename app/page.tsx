@@ -18,7 +18,7 @@ export default function Home() {
         <HDREnvironment />
 
         {/* New Availability Banner */}
-        <div className="absolute top-0 left-0 right-0 bg-black/90 border-y border-white/10 backdrop-blur-sm py-1 z-20">
+        <div className="absolute top-0 left-0 right-0 bg-black border-y border-white/10 backdrop-blur-sm py-1 z-20">
           <div className="container mx-auto flex items-center justify-center">
             <div className="hidden md:block text-white font-mono text-[10px]">
               <pre className="leading-none">
@@ -26,11 +26,9 @@ export default function Home() {
               </pre>
             </div>
             {/* Mobile Version */}
-            <div className="md:hidden text-white/30 font-mono text-[10px]">
+            <div className="md:hidden text-white font-mono text-[10px]">
               <pre className="leading-none">
-                {`╔═══════════════════════╗
-║ 2 SLOTS/MONTH AVAILABLE ║
-╚═══════════════════════╝`}
+                {`[!] WE ARE TAKING ONLY 2 CLIENTS PER MONTH [!]`}
               </pre>
             </div>
           </div>
@@ -100,11 +98,11 @@ export default function Home() {
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white">
-              TRANSFORMING <br /> DREAM IDEAS
-              <br />
-              INTO DIGITAL
-              <br />
-              PIECES
+              <span className="md:hidden">TRANSFORM</span>{" "}
+              <span className="hidden md:block">TRANSFORMING</span> <br /> DREAM
+              IDEAS
+              <br /> INTO DIGITAL
+              <br /> PIECES
             </h1>
 
             <p className="text-sm md:text-base max-w-3xl text-white">
@@ -143,7 +141,7 @@ export default function Home() {
       {/* Services Section */}
       <section
         id="services"
-        className="relative flex flex-col items-center justify-center py-12 md:py-16 lg:px-7"
+        className="relative flex flex-col items-center justify-center py-12 md:py-16 px-3 md:px-5 lg:px-7"
       >
         {/* New Background Layers */}
         <div className="overflow-hidden absolute inset-0">
