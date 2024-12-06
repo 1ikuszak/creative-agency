@@ -22,7 +22,7 @@ export default function Home() {
           <div className="container mx-auto flex items-center justify-center">
             <div className="hidden md:block text-white font-mono text-[10px]">
               <pre className="leading-none">
-                {`║  [!] LIMITED AVAILABILITY - WE ARE TAKING ONLY 2 CLIENTS PER MONTH [!]  ║`}
+                {`  [!] LIMITED AVAILABILITY - WE ARE TAKING ONLY 2 CLIENTS PER MONTH [!]  `}
               </pre>
             </div>
             {/* Mobile Version */}
@@ -343,7 +343,9 @@ export default function Home() {
                     src="https://drewmp.s3.eu-north-1.amazonaws.com/antek.jpg"
                     alt="Antek Profile"
                     fill
+                    sizes="(max-width: 768px) 96px, 128px"
                     className="object-cover"
+                    priority
                   />
                 </div>
 
@@ -451,9 +453,11 @@ export default function Home() {
                 <div className="relative w-24 md:w-32 aspect-square mb-4 md:mb-6">
                   <Image
                     src="https://drewmp.s3.eu-north-1.amazonaws.com/luki.jpg"
-                    alt="Antek Profile"
+                    alt="Lukasz Profile"
                     fill
+                    sizes="(max-width: 768px) 96px, 128px"
                     className="object-cover"
+                    priority
                   />
                 </div>
 
@@ -630,7 +634,7 @@ export default function Home() {
           {/* Displayed only on larger devices */}
           <div className="hidden md:block text-center text-black/20 font-mono text-[10px] leading-none">
             {`010110 EXECUTING PROTOCOL 110101
-█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀���▀█
+█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
 ║ SYS://portfolio.showcase ║
 █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█`}
           </div>
@@ -709,7 +713,7 @@ export default function Home() {
               <pre className="hidden md:block text-white/20 font-mono text-[10px] leading-none">
                 {`◢██████████████████████████████████◣
 ◢ SECURE CHANNEL ESTABLISHED ◣
-◥██████████████████████████████████◤`}
+◥████████████████████��█████████████◤`}
               </pre>
             </div>
           </div>

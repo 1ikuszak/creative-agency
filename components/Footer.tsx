@@ -84,6 +84,7 @@ export function Footer() {
             <h4 className="font-mono text-sm text-black/40">CONTACT</h4>
             <div className="space-y-2 text-sm">
               <p className="text-black/60">Warsaw, Poland</p>
+              <p className="text-black/60">Tokyo, Japan</p>
               <p className="text-black/60">{siteConfig.email}</p>
             </div>
           </div>

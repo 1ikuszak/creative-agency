@@ -3,7 +3,7 @@ import { NavLinks } from "@/types/nav";
 export const siteConfig = {
   name: "drewmp",
   url: "https://drewmp.com",
-  email: "lukasz.glica07@gmail.com",
+  email: "contact@drewmp.com",
   ogImage: "https://drewmp.com/og.jpg",
   description: "...",
   links: {

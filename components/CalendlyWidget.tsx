@@ -19,7 +19,7 @@ export default function CalendlyWidget() {
   return (
     <div
       className="calendly-inline-widget w-full h-[700px]"
-      data-url="https://calendly.com/cosmiclyrics/discovery-call"
+      data-url="https://calendly.com/contact-drewmp/30min"
     />
   );
 }

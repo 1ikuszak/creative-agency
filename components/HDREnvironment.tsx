@@ -4,46 +4,13 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import Loader from "./loader";
 
 function LoadingAnimation() {
-  const [frame, setFrame] = useState(0);
-  const frames = [
-    `┌────────────────────┐
-│ INITIALIZING HDR.. │
-│ ⣷⣄⡀⠀⠀⠀ 35%      │
-└────────────────────┘`,
-    `┌────────────────────┐
-│ PROCESSING HDR... │
-│ ⣾⣷⣄⡀⠀⠀ 65%      │
-└────────────────────┘`,
-    `┌────────────────────┐
-│ FINALIZING HDR... │
-│ ⢿⣻⣷⣄⡀⠀ 85%      │
-└────────────────────┘`,
-    `┌────────────────────┐
-│ HDR READY!         │
-│ ⣿⣿⣿⣿⣿⣿ 100       │
-└────────────────────┘`,
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFrame((prev) => (prev + 1) % frames.length);
-    }, 400);
-    return () => clearInterval(interval);
-  }, [frames.length]);
-
   return (
-    <div className="absolute inset-0 flex items-center justify-end bg-white/90 pr-20">
-      <div className="text-center space-y-4">
-        <pre className="font-mono text-slate-800 whitespace-pre font-semibold">
-          {frames[frame]}
-        </pre>
-        <div className="flex gap-2 justify-center">
-          <div className="w-1.5 h-1.5 bg-slate-700 animate-bounce" />
-          <div className="w-1.5 h-1.5 bg-slate-800 animate-bounce delay-100" />
-          <div className="w-1.5 h-1.5 bg-slate-900 animate-bounce delay-200" />
-        </div>
+    <div className="absolute inset-0 bg-black">
+      <div className="container mx-auto h-full w-full flex items-center justify-end pr-20">
+        <Loader />
       </div>
     </div>
   );
