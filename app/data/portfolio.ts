@@ -67,35 +67,35 @@ export const portfolioProjects: ProjectType[] = [
     id: "SHORT-001",
     type: "short",
     videoUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/meshy_optimized.mp4",
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/mesh_thumb.png",
     tags: ["Video Editing", "Short-Form Video"],
     year: "2024",
-    imageUrl: null,
   },
   {
     id: "SHORT-002",
     type: "short",
     videoUrl:
       "https://drewmp.s3.eu-north-1.amazonaws.com/gandalf_optimized.mp4",
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/gandalf_thumb.png",
     tags: ["Video Editing", "Short-Form Video"],
     year: "2024",
-    imageUrl: null,
   },
   {
     id: "SHORT-003",
     type: "short",
     videoUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/path_optimized.mp4",
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/path_thumb.png",
     tags: ["Video Editing", "Short-Form Video"],
     year: "2024",
-    imageUrl: null,
   },
   {
     id: "SHORT-004",
     type: "short",
     videoUrl:
       "https://drewmp.s3.eu-north-1.amazonaws.com/asia_dream_optimized.mp4",
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/asia_dream_thumb.png",
     tags: ["Video Editing", "Short-Form Video"],
     year: "2024",
-    imageUrl: null,
   },
   {
     id: "SHORT-005",
@@ -104,7 +104,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/flower_man_optimized.mp4",
     tags: ["Video Editing", "Short-Form Video"],
     year: "2024",
-    imageUrl: null,
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/flower_thumb.png",
   },
   {
     id: "SHORT-006",
@@ -113,7 +113,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/special_1k_optimized.mp4",
     tags: ["Video Editing", "Short-Form Video"],
     year: "2024",
-    imageUrl: null,
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/special_1k_thumb.png",
   },
   {
     id: "ANIM-001",
@@ -122,7 +122,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/pixelated_optimized.mp4",
     tags: ["2D Animation"],
     year: "2024",
-    imageUrl: null,
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/pixelated_thumb.png",
   },
   {
     id: "ANIM-002",
@@ -130,7 +130,7 @@ export const portfolioProjects: ProjectType[] = [
     videoUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/train_optimized.mp4",
     tags: ["2D Animation"],
     year: "2024",
-    imageUrl: null,
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/train_thumb.png",
   },
   {
     id: "ANIM-003",
@@ -139,7 +139,8 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/black_and_white_optimized.mp4",
     tags: ["2D Animation"],
     year: "2024",
-    imageUrl: null,
+    imageUrl:
+      "https://drewmp.s3.eu-north-1.amazonaws.com/black_and_white_thumb.png",
   },
   {
     id: "ANIM-004",
@@ -148,7 +149,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/shibuya_pixelated_optimized.mp4",
     tags: ["2D Animation"],
     year: "2024",
-    imageUrl: null,
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/shibuya_thumb.png",
   },
   {
     id: "ANIM-005",
@@ -156,7 +157,7 @@ export const portfolioProjects: ProjectType[] = [
     videoUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/tokyo_optimized.mp4",
     tags: ["3D Animation"],
     year: "2024",
-    imageUrl: null,
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/tokyo_thumb.png",
   },
   {
     id: "ANIM-006",
@@ -165,7 +166,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/meshy_sq_optimized.mp4",
     tags: ["2D Animation"],
     year: "2024",
-    imageUrl: null,
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/meshy_thumb.png",
   },
   {
     id: "ANIM-007",
@@ -174,7 +175,8 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/moon_and_sun_optimized.mp4",
     tags: ["3D Animation"],
     year: "2024",
-    imageUrl: null,
+    imageUrl:
+      "https://drewmp.s3.eu-north-1.amazonaws.com/sun_and_moon_thumb.png",
   },
   {
     id: "GRAPH-001",
