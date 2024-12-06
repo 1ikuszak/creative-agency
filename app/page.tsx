@@ -99,8 +99,8 @@ export default function Home() {
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white">
               <span className="md:hidden">TRANSFORM</span>{" "}
-              <span className="hidden md:block">TRANSFORMING</span> <br /> DREAM
-              IDEAS
+              <span className="hidden md:block">TRANSFORMING</span>
+              DREAM IDEAS
               <br /> INTO DIGITAL
               <br /> PIECES
             </h1>
