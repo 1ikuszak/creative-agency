@@ -2,20 +2,13 @@ import { Button } from "@/components/ui/button";
 import HDREnvironment from "@/components/HDREnvironment";
 import { ServiceCard } from "@/components/ServiceCard";
 import Image from "next/image";
-import { PortfolioSection } from "@/components/PortfolioSection";
+import { PortfolioSection } from "@/components/portfolio/PortfolioSection";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import CalendlyWidget from "@/components/CalendlyWidget";
 import Link from "next/link";
-
-// export const dynamic = "force-dynamic";
+import DynamicImage from "@/components/dynamic-image";
 
 export default function Home() {
-  const imageProps = {
-    // loading: "eager" as const,
-    // priority: true,
-    sizes: "(max-width: 768px) 96px, 128px",
-  };
-
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -303,12 +296,10 @@ export default function Home() {
 
                 {/* Profile Image */}
                 <div className="relative w-24 md:w-32 aspect-square mb-4 md:mb-6">
-                  <Image
-                    src="/antek.jpg"
-                    alt="Antek Profile"
-                    fill
-                    {...imageProps}
-                    className="object-cover"
+                  <DynamicImage
+                    url="https://drewmp.s3.eu-north-1.amazonaws.com/antek.jpg"
+                    alt="Lukasz Profile"
+                    containerClass="aspect-square"
                   />
                 </div>
 
@@ -414,12 +405,10 @@ export default function Home() {
 
                 {/* Profile Image */}
                 <div className="relative w-24 md:w-32 aspect-square mb-4 md:mb-6">
-                  <Image
-                    src="/luki.jpg"
+                  <DynamicImage
+                    url="https://drewmp.s3.eu-north-1.amazonaws.com/luki.jpg"
                     alt="Lukasz Profile"
-                    fill
-                    className="object-cover"
-                    {...imageProps}
+                    containerClass="aspect-square"
                   />
                 </div>
 

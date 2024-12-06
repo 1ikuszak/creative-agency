@@ -1,5 +1,3 @@
-"use client";
-
 import { portfolioCategories } from "@/app/data/portfolio";
 import { CategoryId } from "@/types/portfolio";
 

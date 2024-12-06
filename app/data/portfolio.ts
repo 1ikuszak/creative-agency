@@ -39,29 +39,29 @@ export const portfolioProjects: ProjectType[] = [
   {
     id: "VID-001",
     type: "video",
-    youtubeUrl: "https://www.youtube.com/watch?v=r3uWBPFcREs",
-    youtubeId: "r3uWBPFcREs",
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/japan_diary_4.png",
     tags: ["Video Editing", "Long-Form Video"],
     year: "2024",
     client: "Personal Project",
+    videoUrl: "https://youtu.be/r3uWBPFcREs?si=mGE5DpY8MRKwKqVN",
   },
   {
     id: "VID-002",
     type: "video",
-    youtubeUrl: "https://www.youtube.com/watch?v=60ZH6QeNo2Y",
-    youtubeId: "60ZH6QeNo2Y",
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/japan_diary_3.png",
     tags: ["Video Editing", "Long-Form Video"],
     year: "2024",
     client: "Personal Project",
+    videoUrl: "https://youtu.be/60ZH6QeNo2Y?si=CZcUpPhzGroWZiZq",
   },
   {
     id: "VID-003",
     type: "video",
-    youtubeUrl: "https://www.youtube.com/watch?v=tKVNOcGfrnI",
-    youtubeId: "tKVNOcGfrnI",
+    imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/japan_diary_2.png",
     tags: ["Video Editing", "Long-Form Video"],
     year: "2024",
     client: "Personal Project",
+    videoUrl: "https://youtu.be/tKVNOcGfrnI?si=7OwmNPd5v8O1c_rg",
   },
   {
     id: "SHORT-001",
@@ -69,7 +69,7 @@ export const portfolioProjects: ProjectType[] = [
     videoUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/meshy_optimized.mp4",
     tags: ["Video Editing", "Short-Form Video"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "SHORT-002",
@@ -78,7 +78,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/gandalf_optimized.mp4",
     tags: ["Video Editing", "Short-Form Video"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "SHORT-003",
@@ -86,7 +86,7 @@ export const portfolioProjects: ProjectType[] = [
     videoUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/path_optimized.mp4",
     tags: ["Video Editing", "Short-Form Video"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "SHORT-004",
@@ -95,7 +95,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/asia_dream_optimized.mp4",
     tags: ["Video Editing", "Short-Form Video"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "SHORT-005",
@@ -104,7 +104,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/flower_man_optimized.mp4",
     tags: ["Video Editing", "Short-Form Video"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "SHORT-006",
@@ -113,7 +113,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/special_1k_optimized.mp4",
     tags: ["Video Editing", "Short-Form Video"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "ANIM-001",
@@ -122,7 +122,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/pixelated_optimized.mp4",
     tags: ["2D Animation"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "ANIM-002",
@@ -130,7 +130,7 @@ export const portfolioProjects: ProjectType[] = [
     videoUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/train_optimized.mp4",
     tags: ["2D Animation"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "ANIM-003",
@@ -139,7 +139,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/black_and_white_optimized.mp4",
     tags: ["2D Animation"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "ANIM-004",
@@ -148,7 +148,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/shibuya_pixelated_optimized.mp4",
     tags: ["2D Animation"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "ANIM-005",
@@ -156,7 +156,7 @@ export const portfolioProjects: ProjectType[] = [
     videoUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/tokyo_optimized.mp4",
     tags: ["3D Animation"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "ANIM-006",
@@ -165,7 +165,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/meshy_sq_optimized.mp4",
     tags: ["2D Animation"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "ANIM-007",
@@ -174,7 +174,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/moon_and_sun_optimized.mp4",
     tags: ["3D Animation"],
     year: "2024",
-    client: "Personal Project",
+    imageUrl: null,
   },
   {
     id: "GRAPH-001",
@@ -183,7 +183,7 @@ export const portfolioProjects: ProjectType[] = [
       "https://drewmp.s3.eu-north-1.amazonaws.com/Icarus_final_0000_Ellipse+11.jpg",
     tags: ["2D Graphics", "Logo Design"],
     year: "2024",
-    client: "Personal Project",
+    videoUrl: null,
   },
   {
     id: "GRAPH-002",
@@ -191,7 +191,7 @@ export const portfolioProjects: ProjectType[] = [
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/dynamo_mask.jpg",
     tags: ["2D Graphics", "Logo Design", "Branding"],
     year: "2024",
-    client: "Personal Project",
+    videoUrl: null,
   },
   {
     id: "GRAPH-003",
@@ -199,7 +199,7 @@ export const portfolioProjects: ProjectType[] = [
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/glimpseee.jpg",
     tags: ["3D Graphics", "Logo Design", "Branding"],
     year: "2024",
-    client: "Personal Project",
+    videoUrl: null,
   },
   {
     id: "GRAPH-004",
@@ -207,7 +207,7 @@ export const portfolioProjects: ProjectType[] = [
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/sniezhynka.jpg",
     tags: ["2D Graphics", "Logo Design", "Branding"],
     year: "2024",
-    client: "Personal Project",
+    videoUrl: null,
   },
   {
     id: "GRAPH-005",
@@ -215,7 +215,7 @@ export const portfolioProjects: ProjectType[] = [
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/DYNAMO_FINAL.png",
     tags: ["2D Graphics", "Logo Design", "Branding"],
     year: "2024",
-    client: "Personal Project",
+    videoUrl: null,
   },
   {
     id: "GRAPH-006",
@@ -223,7 +223,7 @@ export const portfolioProjects: ProjectType[] = [
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/serduszko1.png",
     tags: ["3D Graphics"],
     year: "2024",
-    client: "Personal Project",
+    videoUrl: null,
   },
   {
     id: "GRAPH-007",
@@ -231,14 +231,14 @@ export const portfolioProjects: ProjectType[] = [
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/yurei_render.png",
     tags: ["3D Graphics", "Logo Design", "Branding"],
     year: "2024",
-    client: "Personal Project",
+    videoUrl: null,
   },
   {
     id: "WEB-001",
     type: "web",
     websiteUrl: "https://supreme-website-nine.vercel.app/",
     year: "2024",
-    client: "Personal Project",
+    videoUrl: null,
     tags: ["Web Design"],
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/supreme_hero.png",
   },
@@ -247,7 +247,7 @@ export const portfolioProjects: ProjectType[] = [
     type: "web",
     websiteUrl: "https://supreme-website-nine.vercel.app/",
     year: "2024",
-    client: "Personal Project",
+    videoUrl: null,
     tags: ["Web Design"],
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/suprme_black_t.png",
   },
@@ -256,19 +256,19 @@ export const portfolioProjects: ProjectType[] = [
     type: "web",
     websiteUrl: "https://supreme-website-nine.vercel.app/",
     year: "2024",
-    client: "Personal Project",
     tags: ["Web Design"],
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/supreme_black.png",
+    videoUrl: null,
   },
   {
     id: "WEB-004",
     type: "web",
     websiteUrl: "https://ambrosialautomations.com/",
     year: "2024",
-    client: "Personal Project",
     tags: ["Web Design"],
     imageUrl:
       "https://drewmp.s3.eu-north-1.amazonaws.com/amborsial_process.png",
+    videoUrl: null,
   },
   {
     id: "WEB-005",
@@ -279,6 +279,7 @@ export const portfolioProjects: ProjectType[] = [
     tags: ["Web Design"],
     imageUrl:
       "https://drewmp.s3.eu-north-1.amazonaws.com/ambrosial_solutions.png",
+    videoUrl: null,
   },
   {
     id: "WEB-006",
@@ -288,6 +289,7 @@ export const portfolioProjects: ProjectType[] = [
     client: "Personal Project",
     tags: ["Web Design"],
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/ambrosial_cta.png",
+    videoUrl: null,
   },
   {
     id: "WEB-007",
@@ -298,6 +300,7 @@ export const portfolioProjects: ProjectType[] = [
     tags: ["Web Design"],
     imageUrl:
       "https://drewmp.s3.eu-north-1.amazonaws.com/cosmiclyrics_hero.png",
+    videoUrl: null,
   },
   {
     id: "WEB-008",
@@ -308,6 +311,7 @@ export const portfolioProjects: ProjectType[] = [
     tags: ["Web Design"],
     imageUrl:
       "https://drewmp.s3.eu-north-1.amazonaws.com/cosmiclyrics_process.png",
+    videoUrl: null,
   },
   {
     id: "WEB-009",
@@ -318,6 +322,7 @@ export const portfolioProjects: ProjectType[] = [
     tags: ["Web Design"],
     imageUrl:
       "https://drewmp.s3.eu-north-1.amazonaws.com/cosmic_lyrics_offer.png",
+    videoUrl: null,
   },
   {
     id: "WEB-010",
@@ -327,6 +332,7 @@ export const portfolioProjects: ProjectType[] = [
     client: "Personal Project",
     tags: ["Web Design"],
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/lukasz_hero.png",
+    videoUrl: null,
   },
   {
     id: "WEB-011",
@@ -336,6 +342,7 @@ export const portfolioProjects: ProjectType[] = [
     client: "Personal Project",
     tags: ["Web Design"],
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/lukasz_skills.png",
+    videoUrl: null,
   },
   {
     id: "WEB-012",
@@ -345,6 +352,7 @@ export const portfolioProjects: ProjectType[] = [
     client: "Personal Project",
     tags: ["Web Design"],
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/lukasz_bio.png",
+    videoUrl: null,
   },
   {
     id: "WEB-013",
@@ -354,6 +362,7 @@ export const portfolioProjects: ProjectType[] = [
     client: "Personal Project",
     tags: ["Web Design"],
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/lukasz_projects.png",
+    videoUrl: null,
   },
   {
     id: "WEB-014",
@@ -363,6 +372,7 @@ export const portfolioProjects: ProjectType[] = [
     client: "Personal Project",
     tags: ["Web Design"],
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/jg_hero.png",
+    videoUrl: null,
   },
   {
     id: "WEB-015",
@@ -372,5 +382,6 @@ export const portfolioProjects: ProjectType[] = [
     client: "Personal Project",
     tags: ["Web Design"],
     imageUrl: "https://drewmp.s3.eu-north-1.amazonaws.com/jg_2.png",
+    videoUrl: null,
   },
 ];

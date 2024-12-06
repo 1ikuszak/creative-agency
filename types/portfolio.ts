@@ -2,15 +2,11 @@ export interface ProjectType {
   id: string;
   type: "video" | "short" | "image" | "animation" | "web";
   title?: string;
-  instagramUrl?: string;
-  youtubeUrl?: string;
-  youtubeId?: string;
-  videoUrl?: string;
-  imageUrl?: string;
-  thumbnailUrl?: string;
+  videoUrl: string | null;
+  imageUrl: string | null;
   tags?: string[];
   year?: string;
-  client: string;
+  client?: string;
   websiteUrl?: string;
 }
 

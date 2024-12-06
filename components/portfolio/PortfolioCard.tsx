@@ -1,25 +1,68 @@
 import { useState } from "react";
 import { ProjectType } from "@/types/portfolio";
-import { PortfolioCardVideo } from "./PortfolioCardVideo";
-import { PortfolioCardImage } from "./PortfolioCardImage";
-import { PortfolioCardShort } from "./PortfolioCardShort";
-import { PortfolioAnimationCard } from "./PortfolioAnimationCard";
-import { PortfolioCardWeb } from "./PortfolioCardWeb";
+import dynamic from "next/dynamic";
+
+// Dynamic imports for card components
+const CardComponents = {
+  video: dynamic(
+    () =>
+      import("./PortfolioCardVideo").then((mod) => ({
+        default: mod.PortfolioCardVideo,
+      })),
+    {
+      loading: () => <div className="aspect-video bg-black/5 animate-pulse" />,
+      ssr: false,
+    }
+  ),
+  short: dynamic(
+    () =>
+      import("./PortfolioCardShort").then((mod) => ({
+        default: mod.PortfolioCardShort,
+      })),
+    {
+      loading: () => <div className="aspect-[9/16] bg-black/5 animate-pulse" />,
+      ssr: false,
+    }
+  ),
+  image: dynamic(
+    () =>
+      import("./PortfolioCardImage").then((mod) => ({
+        default: mod.PortfolioCardImage,
+      })),
+    {
+      loading: () => <div className="aspect-video bg-black/5 animate-pulse" />,
+      ssr: false,
+    }
+  ),
+  animation: dynamic(
+    () =>
+      import("./PortfolioAnimationCard").then((mod) => ({
+        default: mod.PortfolioAnimationCard,
+      })),
+    {
+      loading: () => <div className="aspect-video bg-black/5 animate-pulse" />,
+      ssr: false,
+    }
+  ),
+  web: dynamic(
+    () =>
+      import("./PortfolioCardWeb").then((mod) => ({
+        default: mod.PortfolioCardWeb,
+      })),
+    {
+      loading: () => <div className="aspect-video bg-black/5 animate-pulse" />,
+      ssr: false,
+    }
+  ),
+};
 
 interface PortfolioCardProps {
   project: ProjectType;
 }
 
-export function PortfolioCard({ project }: PortfolioCardProps) {
+export default function PortfolioCard({ project }: PortfolioCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-
-  const CardComponent = {
-    video: PortfolioCardVideo,
-    short: PortfolioCardShort,
-    image: PortfolioCardImage,
-    animation: PortfolioAnimationCard,
-    web: PortfolioCardWeb,
-  }[project.type];
+  const CardComponent = CardComponents[project.type];
 
   return (
     <div

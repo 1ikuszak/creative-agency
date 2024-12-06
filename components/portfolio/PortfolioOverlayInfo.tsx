@@ -24,7 +24,9 @@ export function PortfolioOverlayInfo({
     >
       <div className="space-y-2">
         {position === "bottom" && (
-          <div className="font-mono text-xs text-white/40">{project.year}</div>
+          <div className="font-mono text-sm text-white/80">
+            <span>{project.year}</span>
+          </div>
         )}
         {project.title && (
           <h3 className="text-lg font-bold text-white">{project.title}</h3>
@@ -40,7 +42,9 @@ export function PortfolioOverlayInfo({
           ))}
         </div>
         {position === "top" && (
-          <div className="font-mono text-xs text-white/40">{project.year}</div>
+          <div className="font-mono text-sm text-white/80">
+            <span>{project.year}</span>
+          </div>
         )}
       </div>
     </div>

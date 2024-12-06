@@ -27,7 +27,7 @@ export function PortfolioCardWeb({
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover select-none"
-          priority={false}
+          priority={true}
           quality={75}
           draggable={false}
           onContextMenu={(e) => e.preventDefault()}
