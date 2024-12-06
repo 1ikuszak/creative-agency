@@ -604,18 +604,20 @@ export default function Home() {
 
           {/* CTA Button */}
           <div className="flex justify-center">
-            <Button
-              variant="secondary"
-              size="lg"
-              className="rounded-none mt-12 bg-black text-white border border-white 
-                hover:bg-red-950  transition-all duration-300 font-mono text-xs"
-            >
-              <pre className="leading-none">
-                {`┌─────────────────────────────┐
-│  CREATE YOUR PROJECT ►►►  │
-└─────────────────────────────┘`}
-              </pre>
-            </Button>
+            <Link href="/#connect">
+              <Button
+                variant="secondary"
+                size="lg"
+                className="rounded-none bg-black text-white border border-white 
+                  hover:bg-white hover:text-black transition-all duration-300 font-mono text-xs"
+              >
+                <pre className="leading-none">
+                  {`┌──────────────────┐
+│ APPLY TODAY ►►► │
+└──────────────────┘`}
+                </pre>
+              </Button>
+            </Link>
           </div>
 
           {/* Replace the old status and data stream with these new components */}
