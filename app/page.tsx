@@ -321,7 +321,7 @@ export default function Home() {
               <pre className="text-black/40 font-mono text-[10px] md:text-xs leading-none mt-2 overflow-x-auto max-w-full px-2">
                 {`╔═════════════════════════════════════╗
 ║ ACCESSING CLASSIFIED INFORMATION... ║
-╚══════════════════════════════════════╝`}
+╚═════════════════════════════════════╝`}
               </pre>
             </div>
           </div>
