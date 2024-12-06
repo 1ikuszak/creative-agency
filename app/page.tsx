@@ -5,7 +5,7 @@ import { PortfolioSection } from "@/components/portfolio/PortfolioSection";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import CalendlyWidget from "@/components/CalendlyWidget";
 import Link from "next/link";
-import DynamicImage from "@/components/dynamic-image";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -16,6 +16,25 @@ export default function Home() {
         className="relative w-full h-[calc(100vh-56px)] flex flex-col items-center justify-center px-3 md:px-5 lg:px-7"
       >
         <HDREnvironment />
+
+        {/* New Availability Banner */}
+        <div className="absolute top-0 left-0 right-0 bg-black/90 border-y border-white/10 backdrop-blur-sm py-1 z-20">
+          <div className="container mx-auto flex items-center justify-center">
+            <div className="hidden md:block text-white font-mono text-[10px]">
+              <pre className="leading-none">
+                {`║  [!] LIMITED AVAILABILITY - WE ARE TAKING ONLY 2 CLIENTS PER MONTH [!]  ║`}
+              </pre>
+            </div>
+            {/* Mobile Version */}
+            <div className="md:hidden text-white/30 font-mono text-[10px]">
+              <pre className="leading-none">
+                {`╔═══════════════════════╗
+║ 2 SLOTS/MONTH AVAILABLE ║
+╚═══════════════════════╝`}
+              </pre>
+            </div>
+          </div>
+        </div>
 
         {/* Layered ASCII Background Effects */}
         <div className="absolute inset-0 overflow-hidden md:pointer-events-none">
@@ -53,6 +72,33 @@ export default function Home() {
         {/* Hero Content */}
         <div className="container relative z-10 mx-auto">
           <div className="space-y-4 md:space-y-8">
+            {/* New Trust Badge */}
+            <div className="flex flex-col items-start space-y-2">
+              <div className="flex items-center gap-2 text-white/80">
+                <span className="text-sm md:text-base">
+                  Trusted by 10+ clients
+                </span>
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="w-4 h-4 md:w-5 md:h-5 bg-white/40 relative flex items-center justify-center"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        className="w-3 h-3 md:w-4 md:h-4 text-white absolute"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white">
               TRANSFORMING <br /> DREAM IDEAS
               <br />
@@ -152,7 +198,7 @@ export default function Home() {
 
           {/* Circuit Board Pattern Top */}
           <div className="hidden md:flex justify-center text-white/20 font-mono text-xs whitespace-pre">
-            {`┌─────────────────────────────────────────┐
+            {`┌────────────────────────────────────────────────┐
 ├╶╮ ┌─┐ ┌╴                       ─┐ ┌─┐ ╭╴┤
 │╶┘ └╴│ │  INITIALIZING SERVICES   │┘ └╴│
 ├── ○╴└─┘    SYSTEM LOADING...    └─┘╶○ ──┤
@@ -295,10 +341,11 @@ export default function Home() {
 
                 {/* Profile Image */}
                 <div className="relative w-24 md:w-32 aspect-square mb-4 md:mb-6">
-                  <DynamicImage
-                    url="https://drewmp.s3.eu-north-1.amazonaws.com/antek.jpg"
-                    alt="Lukasz Profile"
-                    containerClass="aspect-square"
+                  <Image
+                    src="https://drewmp.s3.eu-north-1.amazonaws.com/antek.jpg"
+                    alt="Antek Profile"
+                    fill
+                    className="object-cover"
                   />
                 </div>
 
@@ -404,10 +451,11 @@ export default function Home() {
 
                 {/* Profile Image */}
                 <div className="relative w-24 md:w-32 aspect-square mb-4 md:mb-6">
-                  <DynamicImage
-                    url="https://drewmp.s3.eu-north-1.amazonaws.com/luki.jpg"
-                    alt="Lukasz Profile"
-                    containerClass="aspect-square"
+                  <Image
+                    src="https://drewmp.s3.eu-north-1.amazonaws.com/luki.jpg"
+                    alt="Antek Profile"
+                    fill
+                    className="object-cover"
                   />
                 </div>
 
@@ -537,7 +585,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto container space-y-8 md:space-y-12 lg:space-y-16">
           {/* Portfolio Header */}
           <div className="text-center space-y-4">
-            <h1 className="text-7xl md:text-8xl font-semibold text-black tracking-tighter leading-none relative bg-[url('/leather.png')] bg-repeat bg-clip-text text-transparent [image-rendering:crisp-edges] [-webkit-backface-visibility:hidden] [backface-visibility:hidden] opacity-100">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-black tracking-tighter leading-none relative bg-[url('/leather.png')] bg-repeat bg-clip-text text-transparent [image-rendering:crisp-edges] [-webkit-backface-visibility:hidden] [backface-visibility:hidden] opacity-100">
               <span className="absolute inset-0 bg-[url('/leather.png')] bg-repeat bg-clip-text text-red-950 mix-blend-overlay opacity-100">
                 PORTFOLIO
               </span>
@@ -582,7 +630,7 @@ export default function Home() {
           {/* Displayed only on larger devices */}
           <div className="hidden md:block text-center text-black/20 font-mono text-[10px] leading-none">
             {`010110 EXECUTING PROTOCOL 110101
-█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀���▀█
 ║ SYS://portfolio.showcase ║
 █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█`}
           </div>
@@ -659,7 +707,7 @@ export default function Home() {
 
               {/* Hide on mobile, show on larger screens */}
               <pre className="hidden md:block text-white/20 font-mono text-[10px] leading-none">
-                {`◢██████��█████████████████████████◣
+                {`◢██████████████████████████████████◣
 ◢ SECURE CHANNEL ESTABLISHED ◣
 ◥██████████████████████████████████◤`}
               </pre>
