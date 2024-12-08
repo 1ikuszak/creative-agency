@@ -4,11 +4,12 @@ import * as React from "react";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
 
-import { navigationLinks, siteConfig } from "@/config/site";
+import { navigationLinks } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import Image from "next/image";
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false);
@@ -58,7 +59,7 @@ export function MobileNav() {
           className="flex items-center"
           onOpenChange={setOpen}
         >
-          <span className="font-bold">{siteConfig.name}</span>
+          <Image src="/drewmp.svg" alt="Drew Logo" width={32} height={32} />
         </MobileLink>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="flex flex-col space-y-3">
@@ -80,9 +81,7 @@ export function MobileNav() {
         href="/"
         className="mr-4 flex items-center space-x-2 lg:mr-6 md:hidden"
       >
-        <span className="md:hidden font-bold lg:inline-block">
-          {siteConfig.name}
-        </span>
+        <Image src="/drewmp.svg" alt="Drew Logo" width={48} height={48} />
       </Link>
     </Sheet>
   );

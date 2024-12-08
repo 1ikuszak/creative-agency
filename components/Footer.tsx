@@ -22,7 +22,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Column */}
           <div className="space-y-4">
-            <h3 className="font-bold text-xl">{siteConfig.name}</h3>
+            <Image src="/drewmp.svg" alt="Drew Logo" width={64} height={64} />
             <p className="text-black/60 text-sm">
               Transforming dream ideas into digital pieces.
             </p>

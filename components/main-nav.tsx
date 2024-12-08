@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 import { siteConfig, navigationLinks } from "@/config/site";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export function MainNav() {
   const pathname = usePathname();
@@ -12,9 +13,13 @@ export function MainNav() {
   return (
     <div className="hidden md:flex w-full">
       <Link href="/" className="mr-4 flex items-center space-x-2 lg:mr-6">
-        <span className="hidden font-bold md:inline-block">
-          {siteConfig.name}
-        </span>
+        <Image
+          src="/drewmp.svg"
+          alt="Drew Logo"
+          width={48}
+          height={48}
+          priority
+        />
       </Link>
       <nav className="flex items-center gap-4 text-sm lg:gap-6">
         {navigationLinks.mainNav.map((item) => (

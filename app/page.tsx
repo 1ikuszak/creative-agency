@@ -196,9 +196,9 @@ export default function Home() {
 
           {/* Circuit Board Pattern Top */}
           <div className="hidden md:flex justify-center text-white/20 font-mono text-xs whitespace-pre">
-            {`┌────────────────────────────────────────────────┐
+            {`┌─────────────────────────────────────────┐
 ├╶╮ ┌─┐ ┌╴                       ─┐ ┌─┐ ╭╴┤
-│╶┘ └╴│ │  INITIALIZING SERVICES   │┘ └╴│
+│╶┘ └╴│ │  INITIALIZING SERVICES  │ │╶┘ └╴│
 ├── ○╴└─┘    SYSTEM LOADING...    └─┘╶○ ──┤
 │  ╭────╴ ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ╶─────┐   │
 └──┘     SERVICES LIST ACTIVATED      └───┘`}

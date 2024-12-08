@@ -96,7 +96,7 @@ function HDREnvironmentContent() {
           console.log("Starting HDR texture load...");
           const hdrLoader = new RGBELoader();
           const texture = await hdrLoader.loadAsync(
-            "/hdr/rogland_sunset_2k.hdr"
+            "/hdr/rogland_sunset_4k.hdr"
           );
           console.log("HDR texture loaded successfully");
           return texture;
